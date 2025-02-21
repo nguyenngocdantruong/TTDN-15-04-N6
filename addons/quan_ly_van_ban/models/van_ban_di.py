@@ -7,10 +7,3 @@ class VanBanDi(models.Model):
     _rec_name = "ten_van_ban"
 
     ten_van_ban = fields.Char("Tên văn bản", required=True)
-    ngay_ban_hanh = fields.Date("Ngày ban hành")
-    ngay_ky_vb = fields.Date("Ngày ký văn bản")
-    ngay_het_han = fields.Date("Ngay het han vb")
-    ma_vb = fields.Char("Ma van ban")
-
-    nhan_vien = fields.Char("Nhân viên")
-    nhan_vien_2 = fields.Char("Nhân viên 2")
