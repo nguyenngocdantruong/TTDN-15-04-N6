@@ -13,3 +13,4 @@ class VanBanDi(models.Model):
     ma_vb = fields.Char("Ma van ban")
 
     nhan_vien = fields.Char("Nhân viên")
+    nhan_vien_2 = fields.Char("Nhân viên 2")
