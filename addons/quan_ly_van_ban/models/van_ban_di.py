@@ -8,3 +8,4 @@ class VanBanDi(models.Model):
 
     ten_van_ban = fields.Char("Tên văn bản", required=True)
     ngay_ban_hanh = fields.Date("Ngày ban hành")
+    ngay_ky_vb = fields.Date("Ngày ký văn bản")
