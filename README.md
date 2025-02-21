@@ -12,8 +12,11 @@
 # 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
 ## 1.1. Clone project.
+
+```
 git clone https://gitlab.com/anhlta/odoo-fitdnu.git
 git checkout 
+```
 
 ## 1.2. cài đặt các thư viện cần thiết
 
@@ -24,19 +27,26 @@ sudo apt-get install libxml2-dev libxslt-dev libldap2-dev libsasl2-dev libssl-de
 ```
 ## 1.3. khởi tạo môi trường ảo.
 
-`python3.10 -m venv ./venv`
 Thay đổi trình thông dịch sang môi trường ảo và chạy requirements.txt để cài đặt tiếp các thư viện được yêu cầu
-
+```
+python3.10 -m venv ./venv
+```
 ```
 source venv/bin/activate
+```
+```
 pip3 install -r requirements.txt
 ```
 
 # 2. Setup database
 
 Khởi tạo database trên docker bằng việc thực thi file dockercompose.yml.
-
-`docker-compose up -d`
+```
+sudo apt install docker-compose
+```
+```
+sudo docker-compose up -d
+```
 
 # 3. Setup tham số chạy cho hệ thống
 
@@ -50,21 +60,17 @@ addons_path = addons
 db_host = localhost
 db_password = odoo
 db_user = odoo
-db_port = 5432
+db_port = 5434
 xmlrpc_port = 8069
-```
-Có thể kế thừa từ **odoo.conf.template**
-
-Ngoài ra có thể thêm mổ số parameters như:
-
-```
--c _<đường dẫn đến tệp odoo.conf>_
--u _<tên addons>_ giúp cập nhật addons đó trước khi khởi chạy
--d _<tên database>_ giúp chỉ rõ tên database được sử dụng
---dev=all giúp bật chế độ nhà phát triển 
 ```
 
 # 4. Chạy hệ thống và cài đặt các ứng dụng cần thiết
+
+Lệnh chạy
+```
+python3 odoo-bin.py -c odoo.conf -u all
+```
+
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 

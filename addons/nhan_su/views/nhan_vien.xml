@@ -10,14 +10,22 @@
                         <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
                         <group col="4" string="Thông tin chung">
                             <field name="ma_dinh_danh"/>
+                            <field name="ten_nhan_vien" />
                             <field name="ngay_sinh"/>
                             <field name="que_quan"/>
                             <field name="email"/>
+                            <field name="so_dien_thoai"/>
                         </group>
+                        <notebook>
+                            <page string="Lịch sử công tác">
+                                <field name="lich_su_cong_tac_ids" />
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
+
 
         <record id="view_nhan_vien_tree" model="ir.ui.view">
             <field name="name">nhan_vien</field>
@@ -25,9 +33,11 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="ma_dinh_danh"/>
+                    <field name="ten_nhan_vien" />
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>
                 </tree>
             </field>
         </record>
@@ -37,9 +47,11 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="ma_dinh_danh"/>
+                    <field name="ten_nhan_vien" />
                     <field name="ngay_sinh"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>
                 </search>
             </field>
         </record>
