@@ -11,3 +11,5 @@ class VanBanDi(models.Model):
     ngay_ky_vb = fields.Date("Ngày ký văn bản")
     ngay_het_han = fields.Date("Ngay het han vb")
     ma_vb = fields.Char("Ma van ban")
+
+    nhan_vien = fields.Char("Nhân viên")
