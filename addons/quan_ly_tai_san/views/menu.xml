@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root"
+            name="Quản lý tài sản"
+            sequence="0"/>
+          
+        <menuitem name="Quản lý danh mục tài sản" 
+            id="menu_danh_muc_tai_san" 
+            parent="menu_root" 
+            sequence="1"
+            action="danh_muc_tai_san_action"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_danh_muc_tai_san_all,danh_muc_tai_san.all,model_danh_muc_tai_san,base.group_user,1,1,1,1
+access_tai_san_all,tai_san.all,model_tai_san,base.group_user,1,1,1,1
