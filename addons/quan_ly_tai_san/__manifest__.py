@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 {
     'name': "quan_ly_tai_san",
@@ -27,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/danh_muc_tai_san.xml',
+        'views/tai_san.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

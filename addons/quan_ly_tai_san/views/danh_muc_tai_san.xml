@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-    <!-- Form View -->
-        <record id="danh_muc_tai_san_view_form" model="ir.ui.view">
-            <field name="name">danh_muc_tai_san.view.form</field>
-            <field name="model">danh_muc_tai_san</field>
-            <field name="arch" type="xml">
-                <form string="">
-                    <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Danh mục tài sản</div>
-                        <group col="4" string="Thông tin chung">
-                            <field name="ma_danh_muc_ts" />
-                            <field name="ten_danh_muc_ts" />
-                            <field name="mo_ta_danh_muc_ts" />
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <!-- Tree view -->
-        <record id="danh_muc_tai_san_view_tree" model="ir.ui.view">
-            <field name="name">danh_muc_tai_san.view.tree</field>
-            <field name="model">danh_muc_tai_san</field>
-            <field name="arch" type="xml">
-                <tree string="Danh sách danh mục tài sản">
-                    <field name="ma_danh_muc_ts" />
-                    <field name="ten_danh_muc_ts" />
-                    <field name="mo_ta_danh_muc_ts" />
-                </tree>
-            </field>
-        </record>
-        <!-- Search View -->
-        <record id="danh_muc_tai_san_view_search" model="ir.ui.view">
-            <field name="name">danh_muc_tai_san.view.search</field>
-            <field name="model">danh_muc_tai_san</field>
-            <field name="arch" type="xml">
-                <search string="Tìm kiếm danh mục tài sản">
-                    <field name="ma_danh_muc_ts" />
-                    <field name="ten_danh_muc_ts" />
-                    <field name="mo_ta_danh_muc_ts" />
-                </search>
-            </field>
-        </record>
-        <!-- Action -->
-        <record id="danh_muc_tai_san_action" model="ir.actions.act_window">
-            <field name="name">Danh mục tài sản</field>
-            <field name="res_model">danh_muc_tai_san</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+		<!-- Form View -->
+		<record id="danh_muc_tai_san_view_form" model="ir.ui.view">
+			<field name="name">
+				danh_muc_tai_san.view.form
+			</field>
+			<field name="model">danh_muc_tai_san</field>
+			<field name="arch" type="xml">
+				<form string="Danh mục TS">
+					<sheet>
+						<group col="4" string="Thông tin chung">
+							<field name="ma_danh_muc_ts" />
+							<field name="ten_danh_muc_ts" />
+							<field name="mo_ta_danh_muc_ts" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Tree view -->
+		<record id="danh_muc_tai_san_view_tree" model="ir.ui.view">
+			<field name="name">
+				danh_muc_tai_san.view.tree
+			</field>
+			<field name="model">danh_muc_tai_san</field>
+			<field name="arch" type="xml">
+				<tree string="Danh sách danh mục tài sản">
+					<field name="ma_danh_muc_ts" />
+					<field name="ten_danh_muc_ts" />
+					<field name="mo_ta_danh_muc_ts" />
+				</tree>
+			</field>
+		</record>
+		<!-- Search View -->
+		<record id="danh_muc_tai_san_view_search" model="ir.ui.view">
+			<field name="name">
+				danh_muc_tai_san.view.search
+			</field>
+			<field name="model">danh_muc_tai_san</field>
+			<field name="arch" type="xml">
+				<search string="Tìm kiếm danh mục tài sản">
+					<field name="ma_danh_muc_ts" />
+					<field name="ten_danh_muc_ts" />
+					<field name="mo_ta_danh_muc_ts" />
+				</search>
+			</field>
+		</record>
+		<!-- Action -->
+		<record id="danh_muc_tai_san_action" model="ir.actions.act_window">
+			<field name="name">Danh mục tài sản</field>
+			<field name="res_model">danh_muc_tai_san</field>
+			<field name="view_mode">tree,form</field>
+		</record>
 	</data>
 </odoo>

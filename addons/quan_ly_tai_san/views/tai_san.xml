@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Form view -->
+		<record id="tai_san_view_form" model="ir.ui.view">
+			<field name="name">
+				tai_san.view.form
+			</field>
+			<field name="model">tai_san</field>
+			<field name="arch" type="xml">
+				<form string="Thông tin tài sản">
+					<div class="oe_read_only" style="font-size:25px">
+						Tài sản
+					</div>
+					<sheet>
+						<group col="2">
+							<field name="ma_tai_san" />
+							<field name="ten_tai_san" />
+							<field name="ngay_mua_ts" />
+							<field name="danh_muc_ts_id" />
+							<field name="gia_tri_ban_dau" />
+							<field name="gia_tri_hien_tai" />
+							<field name="pp_khau_hao" />
+							<field name="ngay_bat_dau_khau_hao" />
+							<field name="trang_thai" />
+							<field name="ghi_chu" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Tree view -->
+		<record id="tai_san_view_tree" model="ir.ui.view">
+			<field name="name">
+				tai_san.view.tree
+			</field>
+			<field name="model">tai_san</field>
+			<field name="arch" type="xml">
+				<tree string="Danh sách tài sản">
+					<field name="ma_tai_san" />
+					<field name="ten_tai_san" />
+					<field name="danh_muc_ts_id" />
+					<field name="trang_thai" />
+					<field name="ghi_chu" />
+				</tree>
+			</field>
+		</record>
+		<!-- Search view -->
+		<record id="tai_san_view_search" model="ir.ui.view">
+			<field name="name">
+				tai_san.view.search
+			</field>
+			<field name="model">tai_san</field>
+			<field name="arch" type="xml">
+				<search string="Tìm kiếm tài sản">
+					<field name="ma_tai_san" />
+					<field name="ten_tai_san" />
+					<field name="ngay_mua_ts" />
+					<field name="pp_khau_hao" />
+					<field name="ngay_bat_dau_khau_hao" />
+					<field name="trang_thai" />
+				</search>
+			</field>
+		</record>
+		<!-- Action -->
+		<record id="tai_san_action" model="ir.actions.act_window">
+			<field name="name">Tài sản</field>
+			<field name="res_model">tai_san</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+	</data>
+</odoo>
