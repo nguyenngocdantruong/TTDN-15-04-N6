@@ -6,11 +6,51 @@
             name="Quản lý tài sản"
             sequence="0"/>
           
-        <menuitem name="Quản lý danh mục tài sản" 
-            id="menu_danh_muc_tai_san" 
+        <menuitem name="Nhân sự" 
+            id="menu_nhan_su" 
             parent="menu_root" 
             sequence="1"
-            action="danh_muc_tai_san_action"
         />
+        
+        <menuitem
+            id="nhan_su_menu"
+            name="Quản lý nhân sự"
+            parent="menu_nhan_su"
+            action="nhan_su_action"
+            sequence="1"/>
+        
+        <menuitem
+            id="bo_phan_nhan_su_menu"
+            name="Quản lý bộ phận nhân sự"
+            parent="menu_nhan_su"
+            action="bo_phan_nhan_su_action"
+            sequence="2"/>
+
+        <menuitem
+            id="chuc_vu_nhan_su_menu"
+            name="Quản lý chức vụ nhân sự"
+            parent="menu_nhan_su"
+            action="chuc_vu_nhan_su_action"
+            sequence="3"/>
+        
+        <menuitem name="Tài sản" 
+            id="menu_tai_san" 
+            parent="menu_root" 
+            sequence="2"
+        />
+
+        <menuitem
+            id="tai_san_menu"
+            name="Quản lý tài sản"
+            action="tai_san_action"
+            parent="menu_tai_san"
+            sequence="1"/>
+        
+        <menuitem
+            id="danh_muc_tai_san_menu"
+            name="Quản lý danh mục tài sản"
+            action="danh_muc_tai_san_action"
+            parent="menu_tai_san"
+            sequence="2"/>
     </data>
 </odoo>

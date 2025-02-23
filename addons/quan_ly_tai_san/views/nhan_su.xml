@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        <!-- Form View -->
+        <record id="nhan_su_view_form" model="ir.ui.view">
+            <field name="name">nhan_su.view.form</field>
+            <field name="model">nhan_su</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group col="3" string="Thông tin chung">
+                            <field name="ma_nhan_su" />
+                            <field name="ten_nhan_su" />
+                            <field name="ngay_sinh" />
+                            <field name="email" />
+                            <field name="dia_chi" />
+                            <field name="so_dien_thoai" />
+                            <field name="gioi_tinh" />
+                            <field name="bo_phan_id" />
+                            <field name="chuc_vu_id" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree View -->
+        <record id="nhan_su_view_tree" model="ir.ui.view">
+            <field name="name">nhan_su.view.tree</field>
+            <field name="model">nhan_su</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách NS">
+                    <field name="ma_nhan_su" />
+                    <field name="ten_nhan_su" />
+                    <field name="ngay_sinh" />
+                    <field name="email" />
+                    <field name="dia_chi" />
+                    <field name="so_dien_thoai" />
+                    <field name="gioi_tinh" />
+                    <field name="bo_phan_id" />
+                    <field name="chuc_vu_id" />
+                </tree>
+            </field>
+        </record>
+        <!-- Search View -->
+        <record id="nhan_su_view_search" model="ir.ui.view">
+            <field name="name">nhan_su.view.search</field>
+            <field name="model">nhan_su</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm NS">
+                    <field name="ma_nhan_su" />
+                    <field name="ten_nhan_su" />
+                    <field name="email" />
+                    <field name="so_dien_thoai" />
+                    <field name="bo_phan_id" />
+                    <field name="chuc_vu_id" />
+                </search>
+            </field>
+        </record>
+        <!-- Action view -->
+        <record id="nhan_su_action" model="ir.actions.act_window">
+            <field name="name">Nhân sự</field>
+            <field name="res_model">nhan_su</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+	</data>
+</odoo>

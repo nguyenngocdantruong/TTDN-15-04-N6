@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_danh_muc_tai_san_all,danh_muc_tai_san.all,model_danh_muc_tai_san,base.group_user,1,1,1,1
 access_tai_san_all,tai_san.all,model_tai_san,base.group_user,1,1,1,1
+access_nhan_su_all,nhan_su.all,model_nhan_su,,1,1,1,1
+access_bo_phan_nhan_su_all,bo_phan_nhan_su.all,model_bo_phan_nhan_su,,1,1,1,1
+access_chuc_vu_nhan_su_all,chuc_vu_nhan_su.all,model_chuc_vu_nhan_su,,1,1,1,1
