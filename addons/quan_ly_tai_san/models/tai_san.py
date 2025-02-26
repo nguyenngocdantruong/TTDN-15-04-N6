@@ -3,6 +3,8 @@ from odoo import _, api, fields, models
 class TaiSan(models.Model):
     _name = 'tai_san'
     _description = 'Bảng chứa thông tin tài sản'
+    _rec_name = 'cus_rec_name'
+
 
     ma_tai_san = fields.Char('Mã tài sản', required=True)
     ten_tai_san = fields.Char('Tên tài sản', required=True)
@@ -19,11 +21,11 @@ class TaiSan(models.Model):
     ], string='Phương pháp khấu hao', default = 'none', required=True)
 
     ngay_bat_dau_khau_hao = fields.Date('Ngày bắt đầu khấu hao')
-    trang_thai = fields.Selection([
-        ('new', 'Mới'),
-        ('in-use', 'Đang sử dụng'),
-        ('broken', 'Hỏng'),
-        ('lost', 'Mất'),
-        ('disposed', 'Thanh lý')
-    ], string='Trạng thái', required=True, default='new')
+    don_vi_tinh = fields.Char('Đơn vị tính')
     ghi_chu = fields.Char('Ghi chú')
+
+    cus_rec_name = fields.Char('Tên tài sản', compute='_compute_cus_rec_name', store=True)
+    @api.depends('ten_tai_san', 'ma_tai_san')
+    def _compute_cus_rec_name(self):
+        for record in self:
+            record.cus_rec_name = record.ma_tai_san + ' - ' + record.ten_tai_san

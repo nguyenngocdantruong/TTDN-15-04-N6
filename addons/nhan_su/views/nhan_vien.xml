@@ -18,6 +18,7 @@
                             <field name="que_quan"/>
                             <field name="email"/>
                             <field name="so_dien_thoai"/>
+                            
                         </group>
                         <notebook>
                             <page string="Lịch sử công tác">

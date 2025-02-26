@@ -3,27 +3,28 @@
 	<data>
 		<!-- Form view -->
 		<record id="tai_san_view_form" model="ir.ui.view">
-			<field name="name">
-				tai_san.view.form
-			</field>
+			<field name="name">tai_san.view.form</field>
 			<field name="model">tai_san</field>
 			<field name="arch" type="xml">
-				<form string="Thông tin tài sản">
-					<div class="oe_read_only" style="font-size:25px">
-						Tài sản
-					</div>
+				<form string="Tài sản">
 					<sheet>
 						<group col="2">
-							<field name="ma_tai_san" />
-							<field name="ten_tai_san" />
-							<field name="ngay_mua_ts" />
-							<field name="danh_muc_ts_id" />
-							<field name="gia_tri_ban_dau" />
-							<field name="gia_tri_hien_tai" />
-							<field name="pp_khau_hao" />
-							<field name="ngay_bat_dau_khau_hao" />
-							<field name="trang_thai" />
-							<field name="ghi_chu" />
+							<group string="Thông tin chung">
+								<field name="ma_tai_san" string="Mã tài sản"/>
+								<field name="ten_tai_san" string="Tên tài sản"/>
+								<field name="ngay_mua_ts" string="Ngày mua tài sản"/>
+							</group>
+							<group string="Phương pháp Khấu hao">
+								<field name="pp_khau_hao"/>
+								<field name="ngay_bat_dau_khau_hao" string="Ngày khấu hao đầu tiên"/>
+							</group>
+						</group>
+						<group string="Cấu hình tài sản">
+							<field name="gia_tri_ban_dau" string="Giá trị ban đầu"/>
+							<field name="gia_tri_hien_tai" string="Giá trị hiện tại"/>
+							<field name="danh_muc_ts_id" string="Loại tài sản"/>
+							<field name="don_vi_tinh" string="Đơn vị tính"/>
+							<field name="ghi_chu" string="Ghi chú"/>
 						</group>
 					</sheet>
 				</form>
@@ -40,7 +41,7 @@
 					<field name="ma_tai_san" />
 					<field name="ten_tai_san" />
 					<field name="danh_muc_ts_id" />
-					<field name="trang_thai" />
+					<field name="don_vi_tinh" />
 					<field name="ghi_chu" />
 				</tree>
 			</field>
@@ -58,7 +59,7 @@
 					<field name="ngay_mua_ts" />
 					<field name="pp_khau_hao" />
 					<field name="ngay_bat_dau_khau_hao" />
-					<field name="trang_thai" />
+					<field name="don_vi_tinh" />
 				</search>
 			</field>
 		</record>
