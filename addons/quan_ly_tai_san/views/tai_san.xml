@@ -17,6 +17,16 @@
 							</group>
 							<group string="Phương pháp Khấu hao">
 								<field name="pp_khau_hao"/>
+								<field name="thoi_gian_su_dung"/>
+								<field name="thoi_gian_toi_da" 
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('pp_khau_hao','=','degressive')]}"/>
+								<field name="ty_le_khau_hao" 
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('pp_khau_hao','=','straight-line')]}"/>
+								<button name="action_tinh_khau_hao"
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('id','=',False)]}"
+									string="Tính khấu hao tự động cho 01 năm"
+									type="object"
+									class="btn-primary w-100 mt-3"/>
 							</group>
 						</group>
 						<group string="Cấu hình tài sản">
@@ -47,9 +57,12 @@
 								<group>
 									<field name="lich_su_khau_hao_ids">
 										<tree editable="bottom">
-											<field name="ngay_khau_hao" string="Ngày khấu hao" width="200"/>
+											<field name="ma_phieu_khau_hao" string="Mã phiếu" width="200"/>
+											<field name="ngay_khau_hao" string="Ngày thực hiện" width="150"/>
 											<field name="so_tien_khau_hao" string="Số tiền khấu hao" width="200"/>
 											<field name="gia_tri_con_lai" string="Giá trị còn lại" width="200"/>
+											<field name="loai_phieu" string="Phương thức" width="200"/>
+											<field name="ghi_chu" string="Ghi chú" width="300"/>
 										</tree>
 									</field>
 								</group>
