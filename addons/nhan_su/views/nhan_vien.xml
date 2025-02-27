@@ -13,6 +13,7 @@
                             <field name="ten_nhan_vien" />
                             <field name="ngay_sinh"/>
                             <field name="que_quan"/>
+                            <field name="tuoi"/>
                             <field name="email"/>
                             <field name="so_dien_thoai"/>
                         </group>
