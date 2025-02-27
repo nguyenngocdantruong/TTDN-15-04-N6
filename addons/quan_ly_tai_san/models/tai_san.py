@@ -9,6 +9,10 @@ class TaiSan(models.Model):
     ma_tai_san = fields.Char('Mã tài sản', required=True)
     ten_tai_san = fields.Char('Tên tài sản', required=True)
     ngay_mua_ts = fields.Date('Ngày mua tài sản')
+    don_vi_tien_te = fields.Selection([
+        ('vnd', 'VNĐ'),
+        ('usd', '$'),
+    ], string='Đơn vị tiền tệ', default='vnd', required=True)
     gia_tri_ban_dau = fields.Float('Giá trị ban đầu')
     gia_tri_hien_tai = fields.Float('Giá trị hiện tại')
     danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', ondelete='restrict')
@@ -18,11 +22,8 @@ class TaiSan(models.Model):
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),
         ('degressive', 'Giảm dần'),
-        ('units-of-production', 'Đơn vị sản xuất'),
         ('none', 'Không')
     ], string='Phương pháp khấu hao', default = 'none', required=True)
-
-    ngay_bat_dau_khau_hao = fields.Date('Ngày bắt đầu khấu hao')
     don_vi_tinh = fields.Char('Đơn vị tính')
     ghi_chu = fields.Char('Ghi chú')
 

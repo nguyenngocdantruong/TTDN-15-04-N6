@@ -13,23 +13,20 @@
 								<field name="ma_tai_san" string="Mã tài sản"/>
 								<field name="ten_tai_san" string="Tên tài sản"/>
 								<field name="ngay_mua_ts" string="Ngày mua tài sản"/>
+								<field name="don_vi_tien_te" string="Đơn vị tiền tệ"/>
 							</group>
 							<group string="Phương pháp Khấu hao">
 								<field name="pp_khau_hao"/>
-								<field name="ngay_bat_dau_khau_hao" 
-									attrs="{'invisible': [('pp_khau_hao', '=', 'none')]}" 
-									string="Ngày khấu hao đầu tiên"
-								/>
 							</group>
 						</group>
 						<group string="Cấu hình tài sản">
 							<group>
 								<field name="gia_tri_ban_dau" string="Giá trị ban đầu"/>
-								<field name="gia_tri_hien_tai" string="Giá trị hiện tại"/>
-								<field name="so_luong_tong" string="Số lượng tổng"/>
+								<field name="so_luong_tong" string="Số lượng còn lại"/>
+								<field name="danh_muc_ts_id" string="Loại tài sản"/>
 							</group>
 							<group>
-								<field name="danh_muc_ts_id" string="Loại tài sản"/>
+								<field name="gia_tri_hien_tai" string="Giá trị hiện tại"/>
 								<field name="don_vi_tinh" string="Đơn vị tính"/>
 								<field name="ghi_chu" string="Ghi chú"/>
 							</group>
@@ -90,7 +87,6 @@
 					<field name="ten_tai_san" />
 					<field name="ngay_mua_ts" />
 					<field name="pp_khau_hao" />
-					<field name="ngay_bat_dau_khau_hao" />
 					<field name="don_vi_tinh" />
 				</search>
 			</field>

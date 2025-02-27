@@ -13,7 +13,9 @@
                                 <field name="phong_ban_id" string="Phòng ban"/>
                                 <field name="tai_san_id" string="Tài sản"/>
                                 <field name="ngay_phat" string="Ngày phân bổ"/>
-                                <field name="so_luong" string="Số lượng"/>
+                                <field name="so_luong" 
+                                    string="Số lượng" 
+                                    attrs="{'readonly' : [('tai_san_id','=',False)]}"/>
                             </group>
                             <group string="Trạng thái / Vị trí">
                                 <field name="trang_thai"/>

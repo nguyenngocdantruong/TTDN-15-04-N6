@@ -4,6 +4,7 @@ class LichSuKhauHao(models.Model):
     _name = 'lich_su_khau_hao'
     _description = 'lich_su_khau_hao'
     _rec_name = "ma_phieu_khau_hao"
+    _order = 'ngay_khau_hao desc'
     
     ma_phieu_khau_hao = fields.Char('Mã phiếu', required=True)
     ma_ts = fields.Many2one('tai_san', string='Mã tài sản', required=True)
@@ -31,6 +32,6 @@ class LichSuKhauHao(models.Model):
             if so_tien_khau_hao > tai_san.gia_tri_hien_tai:
                 so_tien_khau_hao = tai_san.gia_tri_hien_tai
             tai_san.gia_tri_hien_tai = max(0, tai_san.gia_tri_hien_tai - so_tien_khau_hao)
-            # Gán giá trị còn lại vào field
+            
             vals['gia_tri_con_lai'] = tai_san.gia_tri_hien_tai  
         return super().create(vals)
