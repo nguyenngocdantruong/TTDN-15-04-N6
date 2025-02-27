@@ -14,16 +14,16 @@ class TaiSan(models.Model):
 
     ma_tai_san = fields.Char('Mã tài sản', required=True)
     ten_tai_san = fields.Char('Tên tài sản', required=True)
-    ngay_mua_ts = fields.Date('Ngày mua tài sản')
+    ngay_mua_ts = fields.Date('Ngày mua tài sản', required=True)
     don_vi_tien_te = fields.Selection([
         ('vnd', 'VNĐ'),
         ('usd', '$'),
     ], string='Đơn vị tiền tệ', default='vnd', required=True)
-    gia_tri_ban_dau = fields.Float('Giá trị ban đầu')
-    gia_tri_hien_tai = fields.Float('Giá trị hiện tại')
-    danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', ondelete='restrict')
-    so_luong_tong = fields.Integer('Số lượng hiện có', default=1)
+    gia_tri_ban_dau = fields.Float('Giá trị ban đầu', default = 1, required=True)
+    gia_tri_hien_tai = fields.Float('Giá trị hiện tại', default = 1, required=True)
+    danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', required=True, ondelete='restrict')
 
+    so_luong_tong = fields.Integer('Số lượng hiện có', default=1, required=True)
 
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),
@@ -38,7 +38,7 @@ class TaiSan(models.Model):
     # Khấu hao giảm dần
     ty_le_khau_hao = fields.Float('Tỷ lệ khấu hao (%)', default=20)
 
-    don_vi_tinh = fields.Char('Đơn vị tính')
+    don_vi_tinh = fields.Char('Đơn vị tính', default = 'Chiếc', required=True)
     ghi_chu = fields.Char('Ghi chú')
 
     cus_rec_name = fields.Char('Tên tài sản', compute='_compute_cus_rec_name', store=True)
@@ -49,6 +49,12 @@ class TaiSan(models.Model):
 
     phong_ban_su_dung_ids = fields.One2many('phan_bo_tai_san', 'tai_san_id', string='Phòng ban sử dụng')
     lich_su_khau_hao_ids = fields.One2many('lich_su_khau_hao', 'ma_ts', string='Lịch sử khấu hao')
+
+    @api.constrains('gia_tri_ban_dau', 'gia_tri_hien_tai')
+    def _check_gia_tri(self):
+        for record in self:
+            if record.gia_tri_ban_dau < 0 or record.gia_tri_hien_tai < 0:
+                raise ValidationError("Giá trị (ban đầu, hiện tại) không thể âm !")
 
     def action_tinh_khau_hao(self):
         for record in self:

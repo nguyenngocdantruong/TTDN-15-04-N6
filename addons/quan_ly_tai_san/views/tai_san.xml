@@ -83,7 +83,8 @@
 					<field name="ma_tai_san" />
 					<field name="ten_tai_san" />
 					<field name="danh_muc_ts_id" />
-					<field name="don_vi_tinh" />
+					<field name="gia_tri_hien_tai" />
+					<field name="so_luong_tong" />
 					<field name="ghi_chu" />
 				</tree>
 			</field>
