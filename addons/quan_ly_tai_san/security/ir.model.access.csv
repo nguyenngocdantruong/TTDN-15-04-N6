@@ -3,3 +3,5 @@ access_danh_muc_tai_san_all,danh_muc_tai_san.all,model_danh_muc_tai_san,base.gro
 access_tai_san_all,tai_san.all,model_tai_san,base.group_user,1,1,1,1
 access_kiem_ke_tai_san_line_all,kiem_ke_tai_san_line.all,model_kiem_ke_tai_san_line,,1,1,1,1
 access_kiem_ke_tai_san_all,kiem_ke_tai_san.all,model_kiem_ke_tai_san,,1,1,1,1
+access_luan_chuyen_tai_san_line_all,luan.chuyen.tai.san.line.all,model_luan_chuyen_tai_san_line,,1,1,1,1
+access_luan_chuyen_tai_san_all,luan_chuyen_tai_san.all,model_luan_chuyen_tai_san,,1,1,1,1
