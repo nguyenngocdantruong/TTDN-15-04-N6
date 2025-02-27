@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_phan_bo_tai_san_form" model="ir.ui.view">
+            <field name="name">phan_bo_tai_san.view.form</field>
+            <field name="model">phan_bo_tai_san</field>
+            <field name="arch" type="xml">
+                <form string="Phân Bổ Tài Sản">
+                    <sheet>
+                        <group col="2">
+                            <group string="Thông tin phân bổ">
+                                <field name="phong_ban_id" string="Phòng ban"/>
+                                <field name="tai_san_id" string="Tài sản"/>
+                                <field name="ngay_phat" string="Ngày phân bổ"/>
+                                <field name="so_luong" string="Số lượng"/>
+                            </group>
+                            <group string="Trạng thái / Vị trí">
+                                <field name="trang_thai"/>
+                                <field name="vi_tri_tai_san_id" string="Vị trí tài sản"/>
+                                <field name="ghi_chu"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_phan_bo_tai_san_tree" model="ir.ui.view">
+            <field name="name">phan_bo_tai_san.view.tree</field>
+            <field name="model">phan_bo_tai_san</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách phân bổ tài sản">
+                    <field name="phong_ban_id"/>
+                    <field name="tai_san_id"/>
+                    <field name="ngay_phat"/>
+                    <field name="so_luong"/>
+                    <field name="trang_thai"/>
+                    <field name="vi_tri_tai_san_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_phan_bo_tai_san_search" model="ir.ui.view">
+            <field name="name">phan_bo_tai_san.view.search</field>
+            <field name="model">phan_bo_tai_san</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm phân bổ tài sản">
+                    <field name="phong_ban_id"/>
+                    <field name="tai_san_id"/>
+                    <field name="ngay_phat"/>
+                    <field name="trang_thai"/>
+                    <field name="vi_tri_tai_san_id"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="phan_bo_tai_san_action" model="ir.actions.act_window">
+            <field name="name">Phân Bổ Tài Sản</field>
+            <field name="res_model">phan_bo_tai_san</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

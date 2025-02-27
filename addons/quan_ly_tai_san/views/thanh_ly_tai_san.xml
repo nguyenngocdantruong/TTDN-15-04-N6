@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_thanh_ly_tai_san_form" model="ir.ui.view">
+        <field name="name">thanh.ly.tai.san.form</field>
+        <field name="model">thanh_ly_tai_san</field>
+        <field name="arch" type="xml">
+            <form string="Thanh lý tài sản">
+                <sheet>
+                    <group>
+                        <field name="hanh_dong"/>
+                        <field name="ngay_thanh_ly"/>
+                        <field name="phan_bo_tai_san_id"/>
+                        <field name="so_luong"/>
+                        <field name="ghi_chu"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_thanh_ly_tai_san_tree" model="ir.ui.view">
+        <field name="name">thanh.ly.tai.san.tree</field>
+        <field name="model">thanh_ly_tai_san</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách Thanh lý tài sản">
+                <field name="hanh_dong"/>
+                <field name="ngay_thanh_ly"/>
+                <field name="phan_bo_tai_san_id"/>
+                <field name="so_luong"/>
+                <field name="ghi_chu"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="thanh_ly_tai_san_action" model="ir.actions.act_window">
+        <field name="name">Thanh lý tài sản</field>
+        <field name="res_model">thanh_ly_tai_san</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

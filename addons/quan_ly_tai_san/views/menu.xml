@@ -6,7 +6,25 @@
         <!-- Tài sản -->
 		<menuitem name="Tài sản" id="menu_tai_san" parent="menu_root" sequence="1" />
 		<menuitem id="tai_san_menu" name="Quản lý tài sản" action="tai_san_action" parent="menu_tai_san" sequence="1" />
-		<menuitem id="danh_muc_tai_san_menu" name="Quản lý danh mục tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="2" />
+		<menuitem id="danh_muc_tai_san_menu" name="Danh mục tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="1" />
+		<menuitem id="phan_bo_tai_san_menu" name="Phân bổ tài sản" action="phan_bo_tai_san_action" parent="menu_tai_san" sequence="2" />
+        <!--  -->
+        
+        <!-- Khấu hao tài sản -->
+        <menuitem name="Khấu hao/Kiểm kê" id="kiem_ke_khau_hao" parent="menu_root" sequence="2" />
+        <menuitem id="khau_hao_tai_san_menu" name="Khấu hao tài sản" action="lich_su_khau_hao_action" parent="kiem_ke_khau_hao" sequence="1" />
+        <menuitem id="kiem_ke_tai_san_menu" name="Kiểm kê tài sản" action="kiem_ke_tai_san_action" parent="kiem_ke_khau_hao" sequence="1" />
+        <!--  -->
+
+        <!-- Luân chuyển tài sản -->
+        <menuitem name="Luân chuyển/Thanh lý" id="menu_luan_chuyen_tai_san" parent="menu_root" sequence="3" />
+        <menuitem id="luan_chuyen_tai_san_menu" name="Quản lý luân chuyển tài sản" parent="menu_luan_chuyen_tai_san" action="luan_chuyen_tai_san_action" sequence="1" />
+        <menuitem id="thanh_ly_tai_san_menu" name="Thanh lý tài sản" parent="menu_luan_chuyen_tai_san" action="thanh_ly_tai_san_action" sequence="2" />
+        <!--  -->
+
+        <!-- Mượn trả tài sản -->
+        <menuitem name="Mượn trả tài sản" id="menu_muon_tra_tai_san" parent="menu_root" sequence="4" />
+        <menuitem id="muon_tra_tai_san_menu" name="Quản lý mượn trả tài sản" parent="menu_muon_tra_tai_san" action="muon_tra_tai_san_action" sequence="1" />
         <!--  -->
 	</data>
 </odoo>
