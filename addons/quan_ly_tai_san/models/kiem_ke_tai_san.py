@@ -6,6 +6,7 @@ class KiemKeTaiSan(models.Model):
     _rec_name = 'ma_phieu_kiem_ke'
     _order = 'thoi_gian_tao desc'
 
+
     ma_phieu_kiem_ke = fields.Char('Mã phiếu', required=True)
     ten_phieu_kiem_ke = fields.Char('Tên phiếu', required=True)
     phong_ban_id = fields.Many2one('phong_ban', string='Bộ phận muốn kiểm kê', required=True)
@@ -20,4 +21,5 @@ class KiemKeTaiSan(models.Model):
     def _onchange_phong_ban_id(self):
         if self.phong_ban_id:
             self.ds_kiem_ke_ids = [(5, 0, 0)]  # Xóa hết danh sách kiểm kê
+
     

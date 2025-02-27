@@ -13,6 +13,7 @@ class KiemKeTaiSanLine(models.Model):
         ('not-finished', 'Chưa kiểm kê'),
         ('finished', 'Đã kiểm kê')
     ], string='Trạng thái', default='not-finished', required=True)
+
     @api.depends('phan_bo_tai_san_id')
     def _compute_so_luong_ly_thuyet(self):
         for record in self:

@@ -18,6 +18,7 @@ class LichSuKhauHao(models.Model):
             if record.ma_ts:
                 record.gia_tri_con_lai = max(0, record.ma_ts.gia_tri_hien_tai - record.so_tien_khau_hao)
     
+
     loai_phieu = fields.Selection([
         ('automatic', 'Tự động'),
         ('manual', 'Thủ công')
@@ -35,3 +36,4 @@ class LichSuKhauHao(models.Model):
             
             vals['gia_tri_con_lai'] = tai_san.gia_tri_hien_tai  
         return super().create(vals)
+

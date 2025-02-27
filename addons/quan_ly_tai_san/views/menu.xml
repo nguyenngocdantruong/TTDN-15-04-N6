@@ -4,10 +4,10 @@
 		<menuitem id="menu_root" name="Quản lý tài sản" sequence="0" />
 
         <!-- Tài sản -->
-		<menuitem name="Tài sản" id="menu_tai_san" parent="menu_root" sequence="1" />
-		<menuitem id="tai_san_menu" name="Quản lý tài sản" action="tai_san_action" parent="menu_tai_san" sequence="1" />
-		<menuitem id="danh_muc_tai_san_menu" name="Danh mục tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="1" />
-		<menuitem id="phan_bo_tai_san_menu" name="Phân bổ tài sản" action="phan_bo_tai_san_action" parent="menu_tai_san" sequence="2" />
+        <menuitem name="Tài sản" id="menu_tai_san" parent="menu_root" sequence="1" />
+        <menuitem id="tai_san_menu" name="Quản lý tài sản" action="tai_san_action" parent="menu_tai_san" sequence="1" />
+        <menuitem id="danh_muc_tai_san_menu" name="Danh mục tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="1" />
+        <menuitem id="phan_bo_tai_san_menu" name="Phân bổ tài sản" action="phan_bo_tai_san_action" parent="menu_tai_san" sequence="2" />
         <!--  -->
         
         <!-- Khấu hao tài sản -->
