@@ -12,7 +12,6 @@ class TaiSan(models.Model):
     gia_tri_ban_dau = fields.Float('Giá trị ban đầu')
     gia_tri_hien_tai = fields.Float('Giá trị hiện tại')
     danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', ondelete='restrict')
-    tai_san = fields.Char("Test")
 
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),

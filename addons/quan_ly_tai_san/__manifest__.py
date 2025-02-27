@@ -27,6 +27,8 @@
         'security/ir.model.access.csv',
         'views/danh_muc_tai_san.xml',
         'views/tai_san.xml',
+        'views/kiem_ke_tai_san.xml',
+        'views/kiem_ke_tai_san_line.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
