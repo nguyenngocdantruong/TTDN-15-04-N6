@@ -10,19 +10,22 @@
                     <sheet>
                         <group col="2">
                             <group string="Thông tin chung">
-                                <field name="bo_phan_nguon" string="Bộ phận hiện tại"/>
-                                <field name="bo_phan_dich" string="Bộ phận nhận"/>
+                                <field name="ma_phieu_luan_chuyen" />
                                 <field name="thoi_gian_luan_chuyen" string="Thời gian luân chuyển"/>
                             </group>
-                            <group string="Ghi chú">
+                            <group string="Thông tin chi tiết">
+                                <field name="bo_phan_nguon" string="Bộ phận hiện tại"/>
+                                <field name="bo_phan_dich" string="Bộ phận nhận"/>
                                 <field name="ghi_chu"/>
                             </group>
                         </group>
 
                         <group string="Danh sách tài sản">
-                            <field name="luan_chuyen_line_ids">
+                            <field name="luan_chuyen_line_ids" attrs="{'readonly': [('bo_phan_nguon', '=', False)]}">
                                 <tree editable="bottom">
-                                    <field name="phan_bo_tai_san_id" string="Tài sản"/>
+                                    <field name="phan_bo_tai_san_id"
+                                        domain="[('phong_ban_id', '=', parent.bo_phan_nguon)]"
+                                        string="Tài sản"/>
                                     <field name="so_luong" string="Số lượng"/>
                                     <field name="ghi_chu" string="Ghi chú"/>
                                 </tree>
