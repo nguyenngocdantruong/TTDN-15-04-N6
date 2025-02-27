@@ -55,7 +55,9 @@ class TaiSan(models.Model):
         for record in self:
             if record.gia_tri_ban_dau < 0 or record.gia_tri_hien_tai < 0:
                 raise ValidationError("Giá trị (ban đầu, hiện tại) không thể âm !")
-
+            elif record.gia_tri_hien_tai > record.gia_tri_ban_dau:
+                raise ValidationError("Giá trị hiện tại không thể lớn hơn giá trị ban đầu !")
+    
     def action_tinh_khau_hao(self):
         for record in self:
             if record.gia_tri_hien_tai <= 0:
@@ -82,12 +84,14 @@ class TaiSan(models.Model):
             self.env['lich_su_khau_hao'].create({
                 'ma_phieu_khau_hao': ma_phieu_khau_hao,
                 'ma_ts': record.id,
-                'ngay_khau_hao': fields.Date.today(),
+                'ngay_khau_hao': fields.Datetime.now(),
                 'so_tien_khau_hao': so_tien_khau_hao,
                 'gia_tri_con_lai': record.gia_tri_hien_tai,
                 'loai_phieu': 'automatic',
-                'ghi_chu': f'Khấu hao tự động ngày {fields.Date.today()}'
+                'ghi_chu': f'Khấu hao tự động {fields.Date.today().strftime("%Y/%m")}'
             })
+
+            record.thoi_gian_su_dung += 1
 
             self.env['bus.bus']._sendone(
                 self.env.user.partner_id, 

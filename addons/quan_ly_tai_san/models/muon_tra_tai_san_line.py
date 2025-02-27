@@ -6,7 +6,7 @@ class MuonTraTaiSanLine(models.Model):
     _description = 'Chi tiết mượn trả tài sản'
 
     muon_tra_id = fields.Many2one('muon_tra_tai_san', string='Phiếu mượn trả', required=True, ondelete='cascade')
-    phan_bo_tai_san_id = fields.Many2one('phan_bo_tai_san', string='Tài sản', required=True)
+    phan_bo_tai_san_id = fields.Many2one('phan_bo_tai_san', string='Tài sản', required=True, ondelete='cascade')
     so_luong = fields.Integer('Số lượng', required=True)
     ghi_chu = fields.Char('Ghi chú', default='')
 

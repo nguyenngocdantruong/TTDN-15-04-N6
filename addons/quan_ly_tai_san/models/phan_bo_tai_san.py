@@ -7,8 +7,8 @@ class PhanBoTaiSan(models.Model):
     _description = 'Bảng chứa thông tin Phân bổ tài sản'
     _rec_name = "custom_name"
 
-    phong_ban_id = fields.Many2one('phong_ban', string='Phòng ban', required=True)
-    tai_san_id = fields.Many2one('tai_san', string='Tài sản', required=True)
+    phong_ban_id = fields.Many2one('phong_ban', string='Phòng ban', required=True, ondelete='restrict')
+    tai_san_id = fields.Many2one('tai_san', string='Tài sản', required=True, ondelete='restrict')
     ngay_phat = fields.Date('Ngày phân bổ', required=True, default=fields.Date.today)
     so_luong = fields.Integer('Số lượng', required=True)
     
@@ -17,7 +17,7 @@ class PhanBoTaiSan(models.Model):
         ('in-use', 'Đang sử dụng'),
         ('not-in-use', 'Không sử dụng')
     ], string='Trạng thái', required=True, default='in-use')
-    vi_tri_tai_san_id = fields.Many2one('phong_ban', string='Vị trí tài sản')
+    vi_tri_tai_san_id = fields.Many2one('phong_ban', string='Vị trí tài sản', required=True, ondelete='restrict')
 
     custom_name = fields.Char(compute="_compute_custom_name", store=True, string="Tên hiển thị")
 

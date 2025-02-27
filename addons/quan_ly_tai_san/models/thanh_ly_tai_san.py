@@ -13,7 +13,7 @@ class ThanhLyTaiSan(models.Model):
         ('ban', 'Bán'),
         ('huy', 'Tiêu hủy')
     ], string='Hành động', required=True)
-    tai_san_id = fields.Many2one('tai_san', 'Tài sản', required=True)
+    tai_san_id = fields.Many2one('tai_san', 'Tài sản', required=True, ondelete='cascade')
     nguoi_thanh_ly_id = fields.Many2one('nhan_vien', 'Người thực hiện', required=True)
     thoi_gian_thanh_ly = fields.Datetime('Thời gian thanh lý', required=True, default=fields.Datetime.now)
     ly_do_thanh_ly = fields.Char('Lý do thanh lý', default='')

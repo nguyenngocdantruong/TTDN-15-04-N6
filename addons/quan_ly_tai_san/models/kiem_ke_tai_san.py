@@ -11,8 +11,8 @@ class KiemKeTaiSan(models.Model):
 
     ma_phieu_kiem_ke = fields.Char('Mã phiếu', default="KKTS-", required=True)
     ten_phieu_kiem_ke = fields.Char('Tên phiếu', required=True)
-    phong_ban_id = fields.Many2one('phong_ban', string='Bộ phận cần kiểm kê', required=True)
-    nhan_vien_kiem_ke_id = fields.Many2one('nhan_vien', string='Nhân viên kiểm kê', required=True)
+    phong_ban_id = fields.Many2one('phong_ban', string='Bộ phận cần kiểm kê', required=True, ondelete='cascade')
+    nhan_vien_kiem_ke_id = fields.Many2one('nhan_vien', string='Nhân viên kiểm kê', ondelete='set null')
     ds_kiem_ke_ids = fields.One2many(comodel_name='kiem_ke_tai_san_line', 
                                      inverse_name='kiem_ke_tai_san_id', 
                                      string ='Danh sách kiểm kê')

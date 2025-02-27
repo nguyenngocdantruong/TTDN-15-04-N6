@@ -10,8 +10,8 @@ class LichSuKhauHao(models.Model):
     ]
     
     ma_phieu_khau_hao = fields.Char('Mã phiếu', default='KHTS-', required=True)
-    ma_ts = fields.Many2one('tai_san', string='Mã tài sản', required=True)
-    ngay_khau_hao = fields.Date('Ngày khấu hao', required=True)
+    ma_ts = fields.Many2one('tai_san', string='Mã tài sản', required=True, ondelete='cascade')
+    ngay_khau_hao = fields.Datetime('Ngày khấu hao',default = fields.Datetime.now(),  required=True)
     so_tien_khau_hao = fields.Float('Số tiền khấu hao', required=True, default=0)
     gia_tri_con_lai = fields.Float(string='Giá trị còn lại', store=True)
     

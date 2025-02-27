@@ -11,11 +11,11 @@ class MuonTraTaiSan(models.Model):
 
     ma_phieu_muon_tra = fields.Char('Mã phiếu', default='MTTS-', required=True)
     ten_phieu_muon_tra = fields.Char('Tên phiếu', required=True)
-    phong_ban_muon_id = fields.Many2one('phong_ban', string='Phòng ban mượn')
-    phong_ban_cho_muon_id = fields.Many2one('phong_ban', string='Phòng ban cho mượn', required=True)
+    phong_ban_muon_id = fields.Many2one('phong_ban', string='Phòng ban mượn', ondelete='set null')
+    phong_ban_cho_muon_id = fields.Many2one('phong_ban', string='Phòng ban cho mượn', required=True, ondelete='restrict')
     ngay_muon = fields.Date('Ngày mượn', required=True, default=fields.Date.today)
     ngay_tra = fields.Date('Ngày trả', required=True)
-    nhan_vien_muon_id = fields.Many2one('nhan_vien', string='Nhân viên mượn', required=True)
+    nhan_vien_muon_id = fields.Many2one('nhan_vien', string='Nhân viên mượn', required=True, ondelete='restrict')
     
     ghi_chu = fields.Char('Ghi chú', default='')
     

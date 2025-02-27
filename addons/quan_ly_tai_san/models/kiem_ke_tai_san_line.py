@@ -4,7 +4,7 @@ class KiemKeTaiSanLine(models.Model):
     _name = 'kiem_ke_tai_san_line'
     _description = 'Bảng chứa thông tin phiếu kiểm kê tài sản'
 
-    kiem_ke_tai_san_id = fields.Many2one('kiem_ke_tai_san', string='Phiếu kiểm kê', required=True)
+    kiem_ke_tai_san_id = fields.Many2one('kiem_ke_tai_san', string='Phiếu kiểm kê', required=True, ondelete='cascade')
     phan_bo_tai_san_id = fields.Many2one('phan_bo_tai_san', string='Tài sản', required=True, ondelete='cascade')
     so_luong_thuc_te = fields.Integer('SL thực tế', required=True)
     so_luong_ly_thuyet = fields.Integer('SL lý thuyết', compute='_compute_so_luong_ly_thuyet', store=True)
