@@ -15,7 +15,7 @@
 								<field name="ngay_mua_ts" string="Ngày mua tài sản"/>
 								<field name="don_vi_tien_te" string="Đơn vị tiền tệ"/>
 							</group>
-							<group string="Phương pháp Khấu hao">
+							<group string="Phương pháp Khấu hao tự động">
 								<field name="pp_khau_hao"/>
 								<field name="thoi_gian_su_dung"/>
 								<field name="thoi_gian_toi_da" 

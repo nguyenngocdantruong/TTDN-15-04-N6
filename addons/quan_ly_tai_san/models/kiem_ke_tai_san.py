@@ -3,6 +3,8 @@ from odoo import _, api, fields, models
 class KiemKeTaiSan(models.Model):
     _name = 'kiem_ke_tai_san'
     _description = 'Bảng chứa thông tin Kiểm kê tài sản'
+    _rec_name = 'ma_phieu_kiem_ke'
+    _order = 'thoi_gian_tao desc'
 
     ma_phieu_kiem_ke = fields.Char('Mã phiếu', required=True)
     ten_phieu_kiem_ke = fields.Char('Tên phiếu', required=True)
@@ -11,7 +13,7 @@ class KiemKeTaiSan(models.Model):
     ds_kiem_ke_ids = fields.One2many(comodel_name='kiem_ke_tai_san_line', 
                                      inverse_name='kiem_ke_tai_san_id', 
                                      string ='Danh sách kiểm kê')
-    ngay_kiem_ke = fields.Date('Ngày kiểm kê', required=True, default=fields.Date.today)
+    thoi_gian_tao = fields.Datetime('Thời gian tạo phiếu', default=fields.Datetime.now)
     ghi_chu = fields.Char('Ghi chú', default='')
 
     @api.onchange('phong_ban_id')
