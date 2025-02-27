@@ -7,11 +7,22 @@
             <form string="Thanh lý tài sản">
                 <sheet>
                     <group>
-                        <field name="hanh_dong"/>
-                        <field name="ngay_thanh_ly"/>
-                        <field name="phan_bo_tai_san_id"/>
-                        <field name="so_luong"/>
-                        <field name="ghi_chu"/>
+                        <group string="Thông tin chung">
+                            <field name="ma_thanh_ly"/>
+                            <field name="hanh_dong"/>
+                            <field name="thoi_gian_thanh_ly"/>
+                            <field name="nguoi_thanh_ly_id"/>
+                            <field name="ly_do_thanh_ly"/>
+                        </group>
+                        <group string="Thông tin chi tiết">
+                            <field name="tai_san_id"/>
+                            <field name="gia_goc"/>
+                            <field name="gia_ban" 
+                                attrs="{'invisible':[('hanh_dong','=','huy')]}"/>
+                            <field name="so_luong"/>
+                            <field name="tong_gia_tri"
+                                attrs="{'invisible':[('hanh_dong','=','huy')]}"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -22,12 +33,11 @@
         <field name="name">thanh.ly.tai.san.tree</field>
         <field name="model">thanh_ly_tai_san</field>
         <field name="arch" type="xml">
-            <tree string="Danh sách Thanh lý tài sản">
+            <tree string="Lịch sử thanh lý tài sản">
+                <field name="ma_thanh_ly"/>
                 <field name="hanh_dong"/>
-                <field name="ngay_thanh_ly"/>
-                <field name="phan_bo_tai_san_id"/>
-                <field name="so_luong"/>
-                <field name="ghi_chu"/>
+                <field name="thoi_gian_thanh_ly"/>
+                <field name="ly_do_thanh_ly"/>
             </tree>
         </field>
     </record>
