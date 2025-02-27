@@ -15,6 +15,7 @@
                                 <field name="phong_ban_id" string="Bộ phận muốn kiểm kê"/>
                                 <field name="nhan_vien_kiem_ke_id" string="Nhân viên kiểm kê"/>
                                 <field name="thoi_gian_tao" string="Thời gian kiểm kê"/>
+                                <field name="trang_thai_phieu" string="Trạng thái kiểm kê"/>
                             </group>
                         </group>
                         <group string="Danh sách kiểm kê">
@@ -49,6 +50,7 @@
                     <field name="phong_ban_id" />
                     <field name="nhan_vien_kiem_ke_id" />
                     <field name="thoi_gian_tao" />
+                    <field name="trang_thai_phieu" string="Trạng thái kiểm kê"/>
                 </tree>
             </field>
         </record>

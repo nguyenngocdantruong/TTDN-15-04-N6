@@ -34,7 +34,7 @@ class PhanBoTaiSan(models.Model):
             so_luong_hien_co = record.tai_san_id.so_luong_tong
             if record.so_luong <= 0:
                 raise ValidationError("Số lượng phải lớn hơn 0!")
-            elif record.so_luong > so_luong_hien_co:
+            elif record.so_luong > so_luong_hien_co and id == False:
                 msg = f"Số lượng nhập không được lớn hơn số lượng hiện có ({so_luong_hien_co})"
                 raise ValidationError(msg)
 
@@ -44,14 +44,25 @@ class PhanBoTaiSan(models.Model):
             record.so_luong = 0
 
     @api.model_create_multi
-    def create(self, vals):
-        for val in vals:
-            tai_san_id = val.get('tai_san_id')
-            so_luong = val.get('so_luong')
-            if not tai_san_id:
-                continue
-            tai_san = self.env['tai_san'].browse(tai_san_id)
-            tai_san.so_luong_tong -= so_luong
-        return super().create(vals)    
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        for record in records:
+            if record.tai_san_id:
+                record.tai_san_id.so_luong_tong -= record.so_luong
+        return records
+
+    def write(self, vals):
+        for record in self:
+            old_so_luong = record.so_luong
+            new_so_luong = vals.get('so_luong', old_so_luong)
+            if new_so_luong != old_so_luong:
+                record.tai_san_id.so_luong_tong += old_so_luong  
+                record.tai_san_id.so_luong_tong -= new_so_luong  
+        return super().write(vals)
+
+    def unlink(self):
+        for record in self:
+            record.tai_san_id.so_luong_tong += record.so_luong 
+        return super().unlink() 
     
     

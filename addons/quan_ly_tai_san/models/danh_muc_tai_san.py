@@ -4,6 +4,10 @@ class DanhMucTaiSan(models.Model):
     _name = 'danh_muc_tai_san'
     _description = 'Bảng chứa thông tin danh mục tài sản'
     _rec_name = "ten_danh_muc_ts"
+    _order = 'ma_danh_muc_ts asc'
+    _sql_constraints = [
+        ("ma_danh_muc_ts_unique", "unique(ma_danh_muc_ts)", "Mã danh mục tài sản đã tồn tại !"),
+    ]
     
     ma_danh_muc_ts = fields.Char('Mã danh mục tài sản', required=True)
     ten_danh_muc_ts = fields.Char('Tên danh mục tài sản', required=True)
