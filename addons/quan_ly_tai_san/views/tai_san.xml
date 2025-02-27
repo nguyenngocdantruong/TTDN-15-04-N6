@@ -8,24 +8,66 @@
 			<field name="arch" type="xml">
 				<form string="Tài sản">
 					<sheet>
-						<group col="2">
+						<group>
 							<group string="Thông tin chung">
 								<field name="ma_tai_san" string="Mã tài sản"/>
 								<field name="ten_tai_san" string="Tên tài sản"/>
 								<field name="ngay_mua_ts" string="Ngày mua tài sản"/>
+								<field name="don_vi_tien_te" string="Đơn vị tiền tệ"/>
 							</group>
-							<group string="Phương pháp Khấu hao">
+							<group string="Phương pháp Khấu hao tự động">
 								<field name="pp_khau_hao"/>
-								<field name="ngay_bat_dau_khau_hao" string="Ngày khấu hao đầu tiên"/>
+								<field name="thoi_gian_su_dung"/>
+								<field name="thoi_gian_toi_da" 
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('pp_khau_hao','=','degressive')]}"/>
+								<field name="ty_le_khau_hao" 
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('pp_khau_hao','=','straight-line')]}"/>
+								<button name="action_tinh_khau_hao"
+									attrs="{'invisible': ['|', ('pp_khau_hao','=','none'), ('id','=',False)]}"
+									string="Tính khấu hao tự động cho 01 năm"
+									type="object"
+									class="btn-primary w-100 mt-3"/>
 							</group>
 						</group>
 						<group string="Cấu hình tài sản">
-							<field name="gia_tri_ban_dau" string="Giá trị ban đầu"/>
-							<field name="gia_tri_hien_tai" string="Giá trị hiện tại"/>
-							<field name="danh_muc_ts_id" string="Loại tài sản"/>
-							<field name="don_vi_tinh" string="Đơn vị tính"/>
-							<field name="ghi_chu" string="Ghi chú"/>
+							<group>
+								<field name="gia_tri_ban_dau" string="Giá trị ban đầu"/>
+								<field name="so_luong_tong" string="Số lượng còn lại"/>
+								<field name="danh_muc_ts_id" string="Loại tài sản"/>
+							</group>
+							<group>
+								<field name="gia_tri_hien_tai" string="Giá trị hiện tại"/>
+								<field name="don_vi_tinh" string="Đơn vị tính"/>
+								<field name="ghi_chu" string="Ghi chú"/>
+							</group>
 						</group>
+						<notebook>
+							<page name="pbsd" string="Phòng ban sử dụng">
+								<group>
+									<field name="phong_ban_su_dung_ids">
+										<tree editable="bottom">
+											<field name="phong_ban_id" string="Phòng ban" width="300"/>
+											<field name="so_luong" string="Số lượng" width="200"/>
+											<field name="trang_thai" string="Trạng thái" width="200"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page name="lskh" string="Lịch sử khấu hao">
+								<group>
+									<field name="lich_su_khau_hao_ids">
+										<tree editable="bottom">
+											<field name="ma_phieu_khau_hao" string="Mã phiếu" width="200"/>
+											<field name="ngay_khau_hao" string="Ngày thực hiện" width="150"/>
+											<field name="so_tien_khau_hao" string="Số tiền khấu hao" width="200"/>
+											<field name="gia_tri_con_lai" string="Giá trị còn lại" width="200"/>
+											<field name="loai_phieu" string="Phương thức" width="200"/>
+											<field name="ghi_chu" string="Ghi chú" width="300"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
 					</sheet>
 				</form>
 			</field>
@@ -58,7 +100,6 @@
 					<field name="ten_tai_san" />
 					<field name="ngay_mua_ts" />
 					<field name="pp_khau_hao" />
-					<field name="ngay_bat_dau_khau_hao" />
 					<field name="don_vi_tinh" />
 				</search>
 			</field>

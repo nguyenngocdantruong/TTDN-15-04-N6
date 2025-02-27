@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_lich_su_khau_hao_form" model="ir.ui.view">
+            <field name="name">lich_su_khau_hao.view.form</field>
+            <field name="model">lich_su_khau_hao</field>
+            <field name="arch" type="xml">
+                <form string="Lịch sử khấu hao">
+                    <sheet>
+                        <group col="2">
+                            <group string="Thông tin chung">
+                                <field name="ma_phieu_khau_hao" string="Mã phiếu"/>
+                                <field name="ma_ts" string="Tài sản khấu hao"/>
+                                <field name="ngay_khau_hao" string="Ngày khấu hao"/>
+                            </group>
+                            <group string="Thông tin tài chính">
+                                <field name="so_tien_khau_hao" 
+                                    string="Số tiền khấu hao" 
+                                    attrs="{'readonly': [('ma_ts','=', False)]}"
+                                />
+                                <field name="gia_tri_con_lai" string="Giá trị còn lại" attrs="{'readonly': True}"/>
+                                <field name="loai_phieu" string="Phương thức"/>
+                            </group>
+                        </group>
+                        <group string="Ghi chú">
+                            <field name="ghi_chu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_lich_su_khau_hao_tree" model="ir.ui.view">
+            <field name="name">lich_su_khau_hao.view.tree</field>
+            <field name="model">lich_su_khau_hao</field>
+            <field name="arch" type="xml">
+                <tree string="Lịch sử khấu hao">
+                    <field name="ma_phieu_khau_hao"/>
+                    <field name="ma_ts"/>
+                    <field name="ngay_khau_hao"/>
+                    <field name="so_tien_khau_hao"/>
+                    <field name="gia_tri_con_lai"/>
+                    <field name="loai_phieu"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_lich_su_khau_hao_search" model="ir.ui.view">
+            <field name="name">lich_su_khau_hao.view.search</field>
+            <field name="model">lich_su_khau_hao</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm lịch sử khấu hao">
+                    <field name="ma_phieu_khau_hao"/>
+                    <field name="ma_ts"/>
+                    <field name="ngay_khau_hao"/>
+                    <field name="loai_phieu"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="lich_su_khau_hao_action" model="ir.actions.act_window">
+            <field name="name">Lịch sử khấu hao</field>
+            <field name="res_model">lich_su_khau_hao</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

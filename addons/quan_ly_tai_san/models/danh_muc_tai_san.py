@@ -8,3 +8,5 @@ class DanhMucTaiSan(models.Model):
     ma_danh_muc_ts = fields.Char('Mã danh mục tài sản', required=True)
     ten_danh_muc_ts = fields.Char('Tên danh mục tài sản', required=True)
     mo_ta_danh_muc_ts = fields.Char('Mô tả danh mục tài sản')
+
+    tai_san_ids = fields.One2many('tai_san', 'danh_muc_ts_id', string='Tài sản')
