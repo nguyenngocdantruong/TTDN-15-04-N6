@@ -6,6 +6,10 @@ class TaiSan(models.Model):
     _name = 'tai_san'
     _description = 'Bảng chứa thông tin tài sản'
     _rec_name = 'cus_rec_name'
+    _order = 'ngay_mua_ts desc'
+    _sql_constraints = [
+        ("ma_tai_san_unique", "unique(ma_tai_san)", "Mã tài sản đã tồn tại !"),
+    ]
 
 
     ma_tai_san = fields.Char('Mã tài sản', required=True)

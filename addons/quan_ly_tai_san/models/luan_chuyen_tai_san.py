@@ -4,6 +4,11 @@ from odoo.exceptions import ValidationError
 class LuanChuyenTaiSan(models.Model):
     _name = 'luan_chuyen_tai_san'
     _description = 'Bảng chứa thông tin Luân chuyển tài sản'
+    _rec_name = 'ma_phieu_luan_chuyen'
+    _order = 'thoi_gian_luan_chuyen desc'
+    _sql_constraints = [
+        ("ma_phieu_luan_chuyen_unique", "unique(ma_phieu_luan_chuyen)", "Mã phiếu lưu chuyển đã tồn tại !"),
+    ]
 
     ma_phieu_luan_chuyen = fields.Char('Mã phiếu',default='LCTS-', required=True)
     bo_phan_nguon = fields.Many2one('phong_ban', string='Bộ phận hiện tại', required=True)
@@ -33,6 +38,6 @@ class LuanChuyenTaiSan(models.Model):
                         'so_luong': line.so_luong,
                         'trang_thai': 'in-use',
                         'vi_tri_tai_san_id': record.bo_phan_dich.id,
-                        'ghi_chu': f"Lưu ý: Phiếu lưu chuyển {record.ma_phieu_luan_chuyen}"
+                        'ghi_chu': f"Lưu ý: Phiếu luân chuyển tài sản - {record.ma_phieu_luan_chuyen}"
                     })
         return records
