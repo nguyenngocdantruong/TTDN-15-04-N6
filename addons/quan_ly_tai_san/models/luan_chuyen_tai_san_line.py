@@ -7,7 +7,7 @@ class LuanChuyenTaiSanLine(models.Model):
 
     luan_chuyen_id = fields.Many2one('luan_chuyen_tai_san', string='Luân chuyển tài sản', required=True, ondelete='cascade')
     phan_bo_tai_san_id = fields.Many2one('phan_bo_tai_san', string='Tài sản', required=True, ondelete='cascade')
-    so_luong = fields.Integer('Số lượng luân chuyển', required=True)
+    so_luong = fields.Integer('Số lượng luân chuyển', default = 1, readonly=True)
     ghi_chu = fields.Char('Ghi chú', default='')
 
     @api.constrains('so_luong')

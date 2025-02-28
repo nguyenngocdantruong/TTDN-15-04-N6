@@ -12,7 +12,7 @@ class LuanChuyenTaiSan(models.Model):
 
     ma_phieu_luan_chuyen = fields.Char('Mã phiếu',default='LCTS-', required=True)
     bo_phan_nguon = fields.Many2one('phong_ban', string='Bộ phận hiện tại', required=True, ondelete='restrict')
-    bo_phan_dich = fields.Many2one('phong_ban', string='Bộ phận nhận', required=True, ondelete='restrict')
+    bo_phan_dich = fields.Many2one('phong_ban', string='Bộ phận chuyển tới', required=True, ondelete='restrict')
     thoi_gian_luan_chuyen = fields.Datetime('Thời gian luân chuyển', required=True, default=fields.Datetime.now)
     ghi_chu = fields.Char('Lý do luân chuyển', default='', required=True)
 

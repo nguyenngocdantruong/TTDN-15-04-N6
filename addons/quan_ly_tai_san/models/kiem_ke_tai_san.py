@@ -3,12 +3,13 @@ from odoo import _, api, fields, models
 class KiemKeTaiSan(models.Model):
     _name = 'kiem_ke_tai_san'
     _description = 'Bảng chứa thông tin Kiểm kê tài sản'
-    _rec_name = 'ma_phieu_kiem_ke'
+    _rec_name = 'rec_name'
     _order = 'thoi_gian_tao desc'
     _sql_constraints = [
         ("ma_phieu_kiem_ke_unique", "unique(ma_phieu_kiem_ke)", "Mã phiếu kiểm kê đã tồn tại !"),
     ]
 
+    rec_name = fields.Char(compute='_compute_rec_name', string='Tên phiếu', store=True)
     ma_phieu_kiem_ke = fields.Char('Mã phiếu', default="KKTS-", required=True)
     ten_phieu_kiem_ke = fields.Char('Tên phiếu', required=True)
     phong_ban_id = fields.Many2one('phong_ban', string='Bộ phận cần kiểm kê', required=True, ondelete='cascade')
@@ -20,6 +21,11 @@ class KiemKeTaiSan(models.Model):
     ghi_chu = fields.Char('Ghi chú', default='')
     trang_thai_phieu = fields.Char(compute='_compute_trang_thai_phieu', string='Trạng thái phiếu', store=True)
     
+    @api.depends('ma_phieu_kiem_ke', 'ten_phieu_kiem_ke')
+    def _compute_rec_name(self):
+        for record in self:
+            record.rec_name = record.ma_phieu_kiem_ke + ' - ' + record.ten_phieu_kiem_ke
+
     @api.depends('ds_kiem_ke_ids.trang_thai')
     def _compute_trang_thai_phieu(self):
         for rec in self:

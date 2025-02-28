@@ -18,19 +18,22 @@
                                 <field name="trang_thai_phieu" string="Trạng thái kiểm kê"/>
                             </group>
                         </group>
-                        <group string="Danh sách kiểm kê">
-                            <field name="ds_kiem_ke_ids" attrs="{'readonly': [('phong_ban_id', '=', False)]}">
-                                <tree editable="bottom">
-                                    <field name="phan_bo_tai_san_id" string="Tài sản"
-                                    width="200" domain="[('phong_ban_id', '=', parent.phong_ban_id)]"/>
-                                    <field name="so_luong_ly_thuyet" string="SL lý thuyết" width="100"/>
-                                    <field name="so_luong_thuc_te" string="SL thực tế" width="100"/>
-                                    <field name="dvt" string="Đơn vị tính" width="150"/>
-                                    <field name="ghi_chu" string="Ghi chú" width="300"/>
-                                    <field name="trang_thai" string="Trạng thái" width="150"/>
-                                </tree>
-                            </field>
-                        </group>
+                        <notebook>
+                            <page string="Danh sách kiểm kê">
+                                <field name="ds_kiem_ke_ids" attrs="{'readonly': [('phong_ban_id', '=', False)]}">
+                                    <tree editable="bottom">
+                                        <field name="phan_bo_tai_san_id" string="Tài sản"
+                                            width="275" domain="[('phong_ban_id', '=', parent.phong_ban_id)]"/>
+                                        <field name="so_luong_ly_thuyet" string="SL lý thuyết" width="100"/>
+                                        <field name="so_luong_thuc_te" string="SL thực tế" width="100"/>
+                                        <field name="dvt" string="Đơn vị tính" width="125"/>
+                                        <field name="trang_thai_tai_san" string="Tình trạng TS" width="150"/>
+                                        <field name="trang_thai" string="Trạng thái" width="150"/>
+                                        <field name="ghi_chu" string="Ghi chú" width="250"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                         <group>
                             <field name="ghi_chu" string="Ghi chú"/>
                         </group>

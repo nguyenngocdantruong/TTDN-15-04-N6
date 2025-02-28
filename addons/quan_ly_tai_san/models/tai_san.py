@@ -23,8 +23,6 @@ class TaiSan(models.Model):
     gia_tri_hien_tai = fields.Float('Giá trị hiện tại', default = 1, required=True)
     danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', required=True, ondelete='restrict')
 
-    so_luong_tong = fields.Integer('Số lượng hiện có', default=1, required=True)
-
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),
         ('degressive', 'Giảm dần'),
@@ -49,6 +47,35 @@ class TaiSan(models.Model):
 
     phong_ban_su_dung_ids = fields.One2many('phan_bo_tai_san', 'tai_san_id', string='Phòng ban sử dụng')
     lich_su_khau_hao_ids = fields.One2many('lich_su_khau_hao', 'ma_ts', string='Lịch sử khấu hao')
+    kiem_ke_history_ids = fields.One2many('kiem_ke_tai_san_line', compute='_compute_kiem_ke_history_ids', string='Lịch sử kiểm kê')
+    luan_chuyen_ids = fields.Many2many('luan_chuyen_tai_san', compute='_compute_luan_chuyen_ids', string='Phiếu luân chuyển')
+    thanh_ly_ids = fields.One2many('thanh_ly_tai_san', 'tai_san_id', string='Lịch sử thanh lý')
+    trang_thai_thanh_ly = fields.Char(string = 'Trạng thái thanh lý', compute='_compute_trang_thai_thanh_ly', store=True)
+    
+    @api.depends('thanh_ly_ids')
+    def _compute_trang_thai_thanh_ly(self):
+        for record in self:
+            thanh_ly = self.env['thanh_ly_tai_san'].search([('tai_san_id', '=', record.id)], limit=1)
+            if thanh_ly:
+                msg = 'Đã thanh lý' if thanh_ly.hanh_dong == 'ban' else 'Đã tiêu hủy' + f'({thanh_ly.ma_thanh_ly})'
+                record.trang_thai_thanh_ly = msg
+            else:
+                record.trang_thai_thanh_ly = 'Chưa thanh lý'
+    
+    def _compute_kiem_ke_history_ids(self):
+        for record in self:
+            phan_bo_ids = self.env['phan_bo_tai_san'].search([('tai_san_id', '=', record.id)]).ids
+            record.kiem_ke_history_ids = self.env['kiem_ke_tai_san_line'].search([
+                ('phan_bo_tai_san_id', 'in', phan_bo_ids)
+            ])
+    
+    def _compute_luan_chuyen_ids(self):
+        for record in self:
+            phan_bo_ids = self.env['phan_bo_tai_san'].search([('tai_san_id', '=', record.id)]).ids
+            luan_chuyen_lines = self.env['luan_chuyen_tai_san_line'].search([
+                ('phan_bo_tai_san_id', 'in', phan_bo_ids)
+            ])
+            record.luan_chuyen_ids = luan_chuyen_lines.mapped('luan_chuyen_id')
 
     @api.constrains('gia_tri_ban_dau', 'gia_tri_hien_tai')
     def _check_gia_tri(self):
@@ -78,7 +105,7 @@ class TaiSan(models.Model):
                 so_tien_khau_hao = record.gia_tri_hien_tai * (record.ty_le_khau_hao / 100) 
 
             so_tien_khau_hao = min(so_tien_khau_hao, record.gia_tri_hien_tai)  
-            ma_phieu_khau_hao = 'KH' + record.ma_tai_san + '-' + datetime.now().strftime('%Y%m%d%H%M%S%f')
+            ma_phieu_khau_hao = 'KH-' + record.ma_tai_san + '-' + datetime.now().strftime('%Y%m%d%H%M%S%f')
 
 
             self.env['lich_su_khau_hao'].create({

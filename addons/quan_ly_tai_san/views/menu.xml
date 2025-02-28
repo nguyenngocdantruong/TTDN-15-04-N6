@@ -5,9 +5,9 @@
 
         <!-- Tài sản -->
         <menuitem name="Tài sản" id="menu_tai_san" parent="menu_root" sequence="1" />
-        <menuitem id="tai_san_menu" name="Quản lý tài sản" action="tai_san_action" parent="menu_tai_san" sequence="1" />
-        <menuitem id="danh_muc_tai_san_menu" name="Danh mục tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="1" />
-        <menuitem id="phan_bo_tai_san_menu" name="Phân bổ tài sản" action="phan_bo_tai_san_action" parent="menu_tai_san" sequence="2" />
+        <menuitem id="danh_muc_tai_san_menu" name="Loại tài sản" action="danh_muc_tai_san_action" parent="menu_tai_san" sequence="1" />
+        <menuitem id="tai_san_menu" name="Quản lý tài sản cụ thể" action="tai_san_action" parent="menu_tai_san" sequence="2" />
+        <menuitem id="phan_bo_tai_san_menu" name="Phân bổ tài sản" action="phan_bo_tai_san_action" parent="menu_tai_san" sequence="3" />
         <!--  -->
         
         <!-- Khấu hao tài sản -->
@@ -24,7 +24,8 @@
 
         <!-- Mượn trả tài sản -->
         <menuitem name="Mượn trả tài sản" id="menu_muon_tra_tai_san" parent="menu_root" sequence="4" />
-        <menuitem id="muon_tra_tai_san_menu" name="Quản lý mượn trả tài sản" parent="menu_muon_tra_tai_san" action="muon_tra_tai_san_action" sequence="1" />
+        <menuitem id="don_muon_tai_san_menu" name="Đơn mượn tài sản" parent="menu_muon_tra_tai_san" action="don_muon_tai_san_action" sequence="1" />
+        <menuitem id="muon_tra_tai_san_menu" name="Quản lý mượn trả tài sản" parent="menu_muon_tra_tai_san" action="muon_tra_tai_san_action" sequence="2" />
         <!--  -->
 	</data>
 </odoo>

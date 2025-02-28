@@ -15,6 +15,9 @@
                                 <field name="ngay_khau_hao" string="Ngày khấu hao"/>
                             </group>
                             <group string="Thông tin tài chính">
+                                <field name="gia_tri_hien_tai" 
+                                    attrs="{'invisible': [('id','!=', False)]}"
+                                />
                                 <field name="so_tien_khau_hao" 
                                     string="Số tiền khấu hao" 
                                     attrs="{'readonly': [('ma_ts','=', False)]}"

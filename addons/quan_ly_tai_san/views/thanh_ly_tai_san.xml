@@ -15,12 +15,10 @@
                             <field name="ly_do_thanh_ly"/>
                         </group>
                         <group string="Thông tin chi tiết">
-                            <field name="tai_san_id"/>
+                            <field name="tai_san_id"
+                                domain="[('trang_thai_thanh_ly','=','Chưa thanh lý')]"/>
                             <field name="gia_goc"/>
                             <field name="gia_ban" 
-                                attrs="{'invisible':[('hanh_dong','=','huy')]}"/>
-                            <field name="so_luong"/>
-                            <field name="tong_gia_tri"
                                 attrs="{'invisible':[('hanh_dong','=','huy')]}"/>
                         </group>
                     </group>

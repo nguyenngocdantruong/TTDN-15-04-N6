@@ -14,20 +14,22 @@
 							<field name="ma_danh_muc_ts" />
 							<field name="ten_danh_muc_ts" />
 							<field name="mo_ta_danh_muc_ts" />
+							<field name="so_luong_tong" />
 						</group>
-						<group string="Tài sản thuộc danh mục">
-							<field name="tai_san_ids">
-								<tree>
-									<field name="ma_tai_san" />
-									<field name="ten_tai_san" />
-									<field name="ngay_mua_ts" />
-									<field name="don_vi_tien_te" />
-									<field name="so_luong_tong" />
-									<field name="don_vi_tinh" />
-									<field name="ghi_chu" />
-								</tree>
-							</field>
-						</group>
+						<notebook>
+							<page string="Tài sản cụ thể">
+								<field name="tai_san_ids">
+									<tree>
+										<field name="ma_tai_san" />
+										<field name="ten_tai_san" />
+										<field name="ngay_mua_ts" />
+										<field name="don_vi_tien_te" />
+										<field name="don_vi_tinh" />
+										<field name="ghi_chu" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
 					</sheet>
 				</form>
 			</field>

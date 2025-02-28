@@ -26,7 +26,6 @@
                                     <field name="phan_bo_tai_san_id"
                                         domain="[('phong_ban_id', '=', parent.bo_phan_nguon)]"
                                         string="Tài sản"/>
-                                    <field name="so_luong" string="Số lượng"/>
                                     <field name="ghi_chu" string="Ghi chú"/>
                                 </tree>
                             </field>

@@ -29,6 +29,7 @@
         'views/kiem_ke_tai_san.xml',
         'views/lich_su_khau_hao.xml',
         'views/luan_chuyen_tai_san.xml',
+        'views/don_muon_tai_san.xml',
         'views/muon_tra_tai_san.xml',
         'views/phan_bo_tai_san.xml',
         'views/tai_san.xml',

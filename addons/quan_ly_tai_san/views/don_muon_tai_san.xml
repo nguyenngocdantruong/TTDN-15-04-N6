@@ -2,24 +2,24 @@
 <odoo>
     <data>
         <!-- Form View -->
-        <record id="view_muon_tra_tai_san_form" model="ir.ui.view">
-            <field name="name">muon_tra_tai_san.view.form</field>
-            <field name="model">muon_tra_tai_san</field>
+        <record id="view_don_muon_tai_san_form" model="ir.ui.view">
+            <field name="name">don_muon_tai_san.view.form</field>
+            <field name="model">don_muon_tai_san</field>
             <field name="arch" type="xml">
-                <form string="Mượn Trả Tài Sản">
+                <form string="Danh sách Đơn mượn tài sản">
                     <sheet>
                         <group col="2">
                             <group string="Thông tin chung">
-                                <field name="ma_phieu_muon_tra" string="Mã phiếu"/>
-                                <field name="ten_phieu_muon_tra" string="Tên phiếu"/>
+                                <field name="ten_don_muon" string="Đơn mượn"/>
                                 <field name="phong_ban_cho_muon_id" string="Phòng ban cho mượn"/>
                                 <field name="thoi_gian_muon" string="Thời gian mượn"/>
                                 <field name="thoi_gian_tra" string="Thời gian trả"/>
                                 <field name="nhan_vien_muon_id" string="Nhân viên mượn"/>
                             </group>
-                            <group string="Trạng thái">
-                                <field name="trang_thai"/>
-                                <field name="ghi_chu"/>
+                            <group string="Thông tin thêm">
+                                <field name="ly_do"/>
+                                <field name="trang_thai"
+                                    attrs="{'invisible': [('id','=',False)]}"/>
                             </group>
                         </group>
 
@@ -39,29 +39,28 @@
         </record>
 
         <!-- Tree View -->
-        <record id="view_muon_tra_tai_san_tree" model="ir.ui.view">
-            <field name="name">muon_tra_tai_san.view.tree</field>
-            <field name="model">muon_tra_tai_san</field>
+        <record id="view_don_muon_tai_san_tree" model="ir.ui.view">
+            <field name="name">don_muon_tai_san.view.tree</field>
+            <field name="model">don_muon_tai_san</field>
             <field name="arch" type="xml">
-                <tree string="Danh sách phiếu mượn trả">
-                    <field name="ma_phieu_muon_tra"/>
+                <tree string="Danh sách đơn mượn tài sản">
+                    <field name="ten_don_muon"/>
                     <field name="phong_ban_cho_muon_id"/>
                     <field name="nhan_vien_muon_id" />
                     <field name="thoi_gian_muon"/>
                     <field name="thoi_gian_tra"/>
-                    <field name="nhan_vien_muon_id"/>
-                    <field name="tinh_trang"/>
+                    <field name="trang_thai"/>
                 </tree>
             </field>
         </record>
 
         <!-- Search View -->
-        <record id="view_muon_tra_tai_san_search" model="ir.ui.view">
-            <field name="name">muon_tra_tai_san.view.search</field>
-            <field name="model">muon_tra_tai_san</field>
+        <record id="view_don_muon_tai_san_search" model="ir.ui.view">
+            <field name="name">don_muon_tai_san.view.search</field>
+            <field name="model">don_muon_tai_san</field>
             <field name="arch" type="xml">
-                <search string="Tìm kiếm phiếu mượn trả">
-                    <field name="ma_phieu_muon_tra"/>
+                <search string="Tìm kiếm đơn mượn tài sản">
+                    <field name="ten_don_muon"/>
                     <field name="phong_ban_cho_muon_id"/>
                     <field name="nhan_vien_muon_id" />
                     <field name="thoi_gian_muon"/>
@@ -72,9 +71,9 @@
         </record>
 
         <!-- Action -->
-        <record id="muon_tra_tai_san_action" model="ir.actions.act_window">
-            <field name="name">Mượn Trả Tài Sản</field>
-            <field name="res_model">muon_tra_tai_san</field>
+        <record id="don_muon_tai_san_action" model="ir.actions.act_window">
+            <field name="name">Đơn mượn tài sản</field>
+            <field name="res_model">don_muon_tai_san</field>
             <field name="view_mode">tree,form</field>
         </record>
     </data>
