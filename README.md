@@ -8,21 +8,22 @@
 
 
 # Giới thiệu về dự án Quản lý tài sản
-* - Quản lý loại tài sản
+## Dự án này nhằm mục đích quản lý tài sản của một tổ chức, trong đó có các thực thể chính như Loại tài sản, Tài sản cụ thể, Đơn mượn & trả tài sản; cung cấp các chức năng sau:
+* Quản lý loại tài sản
 ![Loại tài sản](./images/loai-tai-san.png)
-* - Quản lý tài sản cụ thể
+* Quản lý tài sản cụ thể
 ![Tài sản cụ thể](./images/tai-san-cu-the.png)
-* - Phân bổ tài sản cho các phòng ban
+* Phân bổ tài sản cho các phòng ban
 ![Phân bổ tài sản](./images/phan-bo-tai-san.png)
-* - Khấu hao tài sản
+* Khấu hao tài sản
 ![Khấu hao tài sản](./images/khau-hao-tai-san.png)
-* - Kiểm kê tài sản
+* Kiểm kê tài sản
 ![Kiểm kê tài sản](./images/kiem-ke-tai-san.png)
-* - Luân chuyển tài sản
+* Luân chuyển tài sản
 ![Luân chuyển tài sản](./images/luan-chuyen-tai-san.png)
-* - Thanh lý tài sản
+* Thanh lý tài sản
 ![Thanh lý tài sản](./images/thanh-ly-tai-san.png)
-* - Quản lý đơn mượn tài sản & cấp phát tài sản
+* Quản lý đơn mượn tài sản & cấp phát tài sản
 ![Quản lý mượn tài sản](./images/don-muon-tai-san.png)
 ![Quản lý cấp phát tài sản](./images/cap-phat-tai-san.png)
 
