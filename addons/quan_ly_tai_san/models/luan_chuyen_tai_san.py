@@ -18,6 +18,15 @@ class LuanChuyenTaiSan(models.Model):
 
     luan_chuyen_line_ids = fields.One2many('luan_chuyen_tai_san_line', 'luan_chuyen_id', string='Danh sách tài sản')
 
+    tai_san_da_chon_ids = fields.Many2many(
+        'phan_bo_tai_san', compute='_compute_tai_san_da_chon', store=False
+    )
+
+    @api.depends('luan_chuyen_line_ids.phan_bo_tai_san_id')
+    def _compute_tai_san_da_chon(self):
+        for record in self:
+            record.tai_san_da_chon_ids = record.luan_chuyen_line_ids.mapped('phan_bo_tai_san_id')
+
     @api.onchange('bo_phan_nguon')
     def _onchange_bo_phan_nguon(self):
         if self.bo_phan_nguon:
@@ -29,15 +38,13 @@ class LuanChuyenTaiSan(models.Model):
         for record in records:
             if record.luan_chuyen_line_ids:
                 for line in record.luan_chuyen_line_ids:
-                    # phan_bo_tai_san = line.phan_bo_tai_san_id
-                    # phan_bo_tai_san.so_luong -= line.so_luong
-                    self.env['phan_bo_tai_san'].create({
-                        'phong_ban_id': record.bo_phan_dich.id,
-                        'tai_san_id': line.phan_bo_tai_san_id.tai_san_id.id,
-                        'ngay_phat': fields.Date.today(),
-                        'so_luong': line.so_luong,
-                        'trang_thai': 'in-use',
-                        'vi_tri_tai_san_id': record.bo_phan_dich.id,
-                        'ghi_chu': f"Lưu ý: Phiếu luân chuyển tài sản - {record.ma_phieu_luan_chuyen}"
-                    })
+                    # Lấy phân bổ tài sản hiện tại
+                    phan_bo_tai_san = line.phan_bo_tai_san_id
+                    if phan_bo_tai_san:
+                        # Cập nhật phong_ban_id sang bộ phận đích
+                        phan_bo_tai_san.write({
+                            'phong_ban_id': record.bo_phan_dich.id,
+                            'vi_tri_tai_san_id': record.bo_phan_dich.id,
+                            'ghi_chu': f"Lưu ý: Phiếu luân chuyển tài sản - {record.ma_phieu_luan_chuyen}"
+                        })
         return records

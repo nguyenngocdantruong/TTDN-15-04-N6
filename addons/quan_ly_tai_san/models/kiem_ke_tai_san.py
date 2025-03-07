@@ -9,7 +9,7 @@ class KiemKeTaiSan(models.Model):
         ("ma_phieu_kiem_ke_unique", "unique(ma_phieu_kiem_ke)", "Mã phiếu kiểm kê đã tồn tại !"),
     ]
 
-    rec_name = fields.Char(compute='_compute_rec_name', string='Tên phiếu', store=True)
+    rec_name = fields.Char(compute='_compute_rec_name', store=True)
     ma_phieu_kiem_ke = fields.Char('Mã phiếu', default="KKTS-", required=True)
     ten_phieu_kiem_ke = fields.Char('Tên phiếu', required=True)
     phong_ban_id = fields.Many2one('phong_ban', string='Bộ phận cần kiểm kê', required=True, ondelete='cascade')

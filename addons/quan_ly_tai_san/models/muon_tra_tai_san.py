@@ -25,7 +25,7 @@ class MuonTraTaiSan(models.Model):
         ('da-tra', 'Đã trả')
     ], string='Trạng thái', required=True, default='dang-muon')
 
-    tinh_trang = fields.Char(compute='_compute_tinh_trang', string='Trạng thái', store=True)
+    tinh_trang = fields.Char(compute='_compute_tinh_trang', store=True)
 
     @api.constrains('thoi_gian_muon')
     def _constrains_thoi_gian_muon_thoi_gian_tra(self):

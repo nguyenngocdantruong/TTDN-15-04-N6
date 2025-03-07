@@ -19,12 +19,13 @@
                                 <field name="ghi_chu"/>
                             </group>
                         </group>
-
-                        <group string="Danh sách tài sản">
+                       <group string="Danh sách tài sản">
+                            <field name="tai_san_da_chon_ids" invisible="1"/>
                             <field name="luan_chuyen_line_ids" attrs="{'readonly': [('bo_phan_nguon', '=', False)]}">
                                 <tree editable="bottom">
                                     <field name="phan_bo_tai_san_id"
-                                        domain="[('phong_ban_id', '=', parent.bo_phan_nguon)]"
+                                        domain="[('phong_ban_id', '=', parent.bo_phan_nguon), 
+                                                ('id', 'not in', parent.tai_san_da_chon_ids)]"
                                         string="Tài sản"/>
                                     <field name="ghi_chu" string="Ghi chú"/>
                                 </tree>

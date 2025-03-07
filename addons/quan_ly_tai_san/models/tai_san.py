@@ -39,7 +39,7 @@ class TaiSan(models.Model):
     don_vi_tinh = fields.Char('Đơn vị tính', default = 'Chiếc', required=True)
     ghi_chu = fields.Char('Ghi chú')
 
-    cus_rec_name = fields.Char('Tên tài sản', compute='_compute_cus_rec_name', store=True)
+    cus_rec_name = fields.Char(compute='_compute_cus_rec_name', store=True)
     @api.depends('ten_tai_san', 'ma_tai_san')
     def _compute_cus_rec_name(self):
         for record in self:
