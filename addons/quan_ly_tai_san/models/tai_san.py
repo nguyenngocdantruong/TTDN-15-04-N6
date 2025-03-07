@@ -21,7 +21,7 @@ class TaiSan(models.Model):
     ], string='Đơn vị tiền tệ', default='vnd', required=True)
     gia_tri_ban_dau = fields.Float('Giá trị ban đầu', default = 1, required=True)
     gia_tri_hien_tai = fields.Float('Giá trị hiện tại', default = 1, required=True)
-    danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Danh mục tài sản', required=True, ondelete='restrict')
+    danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Loại tài sản', required=True, ondelete='restrict')
 
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),

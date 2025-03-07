@@ -13,7 +13,7 @@ class MuonTraTaiSan(models.Model):
     ten_phieu_muon_tra = fields.Char('Tên phiếu', required=True)
     phong_ban_cho_muon_id = fields.Many2one('phong_ban', string='Phòng ban cho mượn', required=True, ondelete='restrict')
     thoi_gian_muon = fields.Datetime('Thời gian mượn', required=True, default=lambda self: fields.Datetime.now())
-    thoi_gian_tra = fields.Datetime('Thời gian trả', required=True)
+    thoi_gian_tra = fields.Datetime('Thời gian trả', required=True, default=lambda self: fields.Datetime.now())
     nhan_vien_muon_id = fields.Many2one('nhan_vien', string='Nhân viên mượn', required=True, ondelete='restrict')
     
     ghi_chu = fields.Char('Ghi chú', default='')

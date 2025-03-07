@@ -29,8 +29,8 @@ class LuanChuyenTaiSan(models.Model):
         for record in records:
             if record.luan_chuyen_line_ids:
                 for line in record.luan_chuyen_line_ids:
-                    phan_bo_tai_san = line.phan_bo_tai_san_id
-                    phan_bo_tai_san.so_luong -= line.so_luong
+                    # phan_bo_tai_san = line.phan_bo_tai_san_id
+                    # phan_bo_tai_san.so_luong -= line.so_luong
                     self.env['phan_bo_tai_san'].create({
                         'phong_ban_id': record.bo_phan_dich.id,
                         'tai_san_id': line.phan_bo_tai_san_id.tai_san_id.id,

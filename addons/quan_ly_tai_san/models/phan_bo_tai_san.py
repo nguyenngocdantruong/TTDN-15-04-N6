@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 class PhanBoTaiSan(models.Model):
     _name = 'phan_bo_tai_san'
     _description = 'Bảng chứa thông tin Phân bổ tài sản'
-    _rec_name = "custom_name"
+    _rec_name = "tai_san_id"
 
     phong_ban_id = fields.Many2one('phong_ban', string='Phòng ban', required=True, ondelete='restrict')
     tai_san_id = fields.Many2one('tai_san', string='Tài sản', required=True, ondelete='restrict')
@@ -24,6 +24,6 @@ class PhanBoTaiSan(models.Model):
     @api.depends('phong_ban_id', 'tai_san_id')
     def _compute_custom_name(self):
         for record in self:
-            phong_ban_code = record.phong_ban_id.ma_phong_ban or 'Mã phòng ban không xác định'
+            phong_ban_code = record.tai_san_id.ma_tai_san or 'Mã phòng ban không xác định'
             tai_san_name = record.tai_san_id.ten_tai_san or 'Tài sản không xác định'
             record.custom_name = f"{phong_ban_code} - {tai_san_name}"

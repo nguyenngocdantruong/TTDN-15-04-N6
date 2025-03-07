@@ -6,12 +6,12 @@ class DanhMucTaiSan(models.Model):
     _rec_name = "ten_danh_muc_ts"
     _order = 'ma_danh_muc_ts asc'
     _sql_constraints = [
-        ("ma_danh_muc_ts_unique", "unique(ma_danh_muc_ts)", "Mã danh mục tài sản đã tồn tại !"),
+        ("ma_danh_muc_ts_unique", "unique(ma_danh_muc_ts)", "Mã loại tài sản đã tồn tại !"),
     ]
     
-    ma_danh_muc_ts = fields.Char('Mã danh mục tài sản', required=True)
-    ten_danh_muc_ts = fields.Char('Tên danh mục tài sản', required=True)
-    mo_ta_danh_muc_ts = fields.Char('Mô tả danh mục tài sản')
+    ma_danh_muc_ts = fields.Char('Mã loại tài sản', required=True)
+    ten_danh_muc_ts = fields.Char('Tên loại tài sản', required=True)
+    mo_ta_danh_muc_ts = fields.Char('Mô tả loại tài sản')
 
     so_luong_tong = fields.Integer(string = 'Số lượng hiện có',compute = "_compute_so_luong_tong", store=True)
     @api.depends('tai_san_ids')

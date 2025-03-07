@@ -45,14 +45,15 @@
 							<page name="pbsd" string="Phòng ban sử dụng">
 								<field name="phong_ban_su_dung_ids">
 									<tree editable="bottom">
-										<field name="phong_ban_id" string="Phòng ban" width="300"/>
-										<field name="trang_thai" string="Trạng thái" width="200"/>
+										<field name="phong_ban_id" string="Phòng ban"/>
+										<field name="trang_thai" string="Trạng thái" />
+										<field name="vi_tri_tai_san_id" string="Vị trí tài sản"/>
 									</tree>
 								</field>
 							</page>
 							<page name="lskh" string="Lịch sử khấu hao">
 								<field name="lich_su_khau_hao_ids">
-									<tree editable="bottom">
+									<tree>
 										<field name="ma_phieu_khau_hao" string="Mã phiếu" width="200"/>
 										<field name="ngay_khau_hao" string="Ngày thực hiện" width="150"/>
 										<field name="so_tien_khau_hao" string="Số tiền khấu hao" width="200"/>
@@ -64,7 +65,7 @@
 							</page>
 							<page name="lskk" string="Lịch sử kiểm kê">
 								<field name="kiem_ke_history_ids">
-									<tree>
+									<tree editable="bottom">
 										<field name="kiem_ke_tai_san_id" string="Mã kiểm kê"/>
 										<field name="so_luong_thuc_te" string="Số lượng thực tế"/>
 										<field name="so_luong_ly_thuyet" string="Số lượng lý thuyết"/>
@@ -76,7 +77,7 @@
 							</page>
 							<page name="lslc" string="Lịch sử luân chuyển">
 								<field name="luan_chuyen_ids">
-									<tree>
+									<tree editable="bottom">
 										<field name="ma_phieu_luan_chuyen" string="Mã phiếu"/>
 										<field name="bo_phan_nguon" string="Vị trí ban đầu"/>
 										<field name="bo_phan_dich" string="Bộ phận chuyển tới"/>

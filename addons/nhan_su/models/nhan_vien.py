@@ -7,7 +7,7 @@ class NhanVien(models.Model):
     _rec_name = 'ho_ten'
 
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
-    ho_ten = fields.Char("Họ tên", required=True)
+    ho_ten = fields.Char("Họ tên", required=True, default='')
     ngay_sinh = fields.Date("Ngày sinh")
     que_quan = fields.Char("Quê quán")
     email = fields.Char("Email")

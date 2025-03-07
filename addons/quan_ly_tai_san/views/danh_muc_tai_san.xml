@@ -41,7 +41,7 @@
 			</field>
 			<field name="model">danh_muc_tai_san</field>
 			<field name="arch" type="xml">
-				<tree string="Danh sách danh mục tài sản">
+				<tree string="Danh sách loại tài sản">
 					<field name="ma_danh_muc_ts" />
 					<field name="ten_danh_muc_ts" />
 					<field name="mo_ta_danh_muc_ts" />
@@ -55,7 +55,7 @@
 			</field>
 			<field name="model">danh_muc_tai_san</field>
 			<field name="arch" type="xml">
-				<search string="Tìm kiếm danh mục tài sản">
+				<search string="Tìm kiếm loại tài sản">
 					<field name="ma_danh_muc_ts" />
 					<field name="ten_danh_muc_ts" />
 					<field name="mo_ta_danh_muc_ts" />
@@ -64,7 +64,7 @@
 		</record>
 		<!-- Action -->
 		<record id="danh_muc_tai_san_action" model="ir.actions.act_window">
-			<field name="name">Danh mục tài sản</field>
+			<field name="name">Loại tài sản</field>
 			<field name="res_model">danh_muc_tai_san</field>
 			<field name="view_mode">tree,form</field>
 		</record>
