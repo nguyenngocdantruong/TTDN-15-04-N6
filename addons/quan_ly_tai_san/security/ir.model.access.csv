@@ -12,4 +12,4 @@ access_phan_bo_tai_san_all,phan_bo_tai_san.all,model_phan_bo_tai_san,,1,1,1,1
 access_thanh_ly_tai_san_all,thanh_ly_tai_san.all,model_thanh_ly_tai_san,,1,1,1,1
 access_don_muon_tai_san_all,don_muon_tai_san.all,model_don_muon_tai_san,,1,1,1,1
 access_don_muon_tai_san_line_all,don_muon_tai_san_line.all,model_don_muon_tai_san_line,,1,1,1,1
-
+access_asset_dashboard_all,asset.dashboard.all,model_asset_dashboard,,1,0,0,0

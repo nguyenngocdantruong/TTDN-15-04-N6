@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dashboard_overview_view" model="ir.ui.view">
+            <field name="name">asset.dashboard.view.form</field>
+            <field name="model">asset.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Tổng quan tài sản" js_class="dashboard_overview_view" hide_header="1" hide_action="1" hide_toolbar="1">
+                    <div class="o_dashboards">
+                        <div class="container-fluid o_dashboard_common">
+                            <!-- Summary Section -->
+                            <div style="font-size:25px">Tổng quan</div>
+                            <div class="row mt16 o_dashboard_stat_cards">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary">Tổng số tài sản</h5>
+                                            <h2 class="card-text text-primary total_assets">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-success">Đang sử dụng</h5>
+                                            <h2 class="card-text text-success in_use_assets">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-warning">Không sử dụng</h5>
+                                            <h2 class="card-text text-warning not_used_assets">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-danger">Đã thanh lý</h5>
+                                            <h2 class="card-text text-danger disposed_assets">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Summary -->
+                            <div class="row mt16 o_dashboard_stats">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Giá trị tài sản</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6 text-center">
+                                                    <h6>Tổng nguyên giá</h6>
+                                                    <h3 class="text-primary total_original_value">0 VNĐ</h3>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <h6>Giá trị còn lại</h6>
+                                                    <h3 class="text-success total_current_value">0 VNĐ</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0">Thống kê mượn trả</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6 text-center">
+                                                    <h6>Đang mượn</h6>
+                                                    <h3 class="text-warning borrowed_assets">0</h3>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <h6>Đã trả</h6>
+                                                    <h3 class="text-info returned_assets">0</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Charts Section -->
+                            <div class="row mt16">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0">Tài sản theo phòng ban</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="departmentsPieChart" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-warning text-white">
+                                            <h5 class="mb-0">Tài sản theo loại</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="assetTypeBarChart" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="dashboard_tong_quan_action" model="ir.actions.act_window">
+            <field name="name">Dashboard Tổng Quan</field>
+            <field name="res_model">asset.dashboard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="dashboard_overview_view"/>
+            <!-- <field name="target">main</field> -->
+        </record>
+    </data>
+</odoo>

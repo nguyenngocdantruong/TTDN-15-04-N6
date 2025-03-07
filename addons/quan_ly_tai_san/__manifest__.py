@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'web'],
 
     # always loaded
     'data': [
@@ -34,10 +34,22 @@
         'views/phan_bo_tai_san.xml',
         'views/tai_san.xml',
         'views/thanh_ly_tai_san.xml',
+        'views/dashboard_overview.xml',
+        'views/dashboard_borrowing.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    
+    'assets': {
+        'web.assets_backend': [
+            'https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js',
+            'quan_ly_tai_san/static/src/css/dashboard.css',
+            'quan_ly_tai_san/static/src/js/dashboard_overview.js',
+            'quan_ly_tai_san/static/src/js/dashboard_borrowing.js',
+        ],
+    },
 }

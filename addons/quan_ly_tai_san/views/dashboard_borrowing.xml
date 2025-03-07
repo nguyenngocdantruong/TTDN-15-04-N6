@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dashboard_borrowing_view" model="ir.ui.view">
+            <field name="name">dashboard.borrowing</field>
+            <field name="model">asset.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Mượn Trả Tài Sản" js_class="dashboard_borrowing_view">
+                    <div class="o_dashboards">
+                        <div class="container-fluid o_dashboard_common">
+                            <div style="font-size:25px">Tình hình mượn trả</div>
+                            <!-- Summary Stats -->
+                            <div class="row mt16">
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary">Đang chờ duyệt</h5>
+                                            <h2 class="card-text text-primary pending_requests">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-success">Đã duyệt (chưa trả)</h5>
+                                            <h2 class="card-text text-success approved_not_returned">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-3 o_dashboard_card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-warning">Số tài sản đang mượn</h5>
+                                            <h2 class="card-text text-warning borrowed_assets_count">0</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Top Borrowed Assets -->
+                            <div class="row mt16">
+                                <div class="col-lg-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Top tài sản được mượn nhiều nhất</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="topBorrowedAssetsChart" height="250"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Overdue Assets -->
+                            <div class="row mt16">
+                                <div class="col-lg-12">
+                                    <div class="card mb-3 o_dashboard_card">
+                                        <div class="card-header bg-danger text-white">
+                                            <h5 class="mb-0">Tài sản quá hạn chưa trả</h5>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped mb-0" id="overdueAssetsTable">
+                                                    <thead class="bg-light">
+                                                        <tr>
+                                                            <th>Mã phiếu</th>
+                                                            <th>Tên phiếu</th>
+                                                            <th>Người mượn</th>
+                                                            <th>Ngày mượn</th>
+                                                            <th>Ngày trả</th>
+                                                            <th>Số ngày quá hạn</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Dynamic content -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="dashboard_muon_tra" model="ir.actions.act_window">
+            <field name="name">Dashboard Đơn Mượn &amp; Trả</field>
+            <field name="res_model">asset.dashboard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="dashboard_borrowing_view"/>
+            <field name="target">main</field>
+        </record>
+    </data>
+</odoo>

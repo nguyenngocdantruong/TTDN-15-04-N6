@@ -32,3 +32,13 @@ class ThanhLyTaiSan(models.Model):
         for record in self:
             if record.tai_san_id:
                 record.gia_goc = record.tai_san_id.gia_tri_ban_dau
+                
+    @api.constrains('tai_san_id')
+    def _check_tai_san_thanh_ly_once(self):
+        for record in self:
+            existing_thanh_ly = self.env['thanh_ly_tai_san'].search([
+                ('tai_san_id', '=', record.tai_san_id.id),
+                ('id', '!=', record.id)
+            ])
+            if existing_thanh_ly:
+                raise ValidationError(_(f"Tài sản '{record.tai_san_id.ten_tai_san}' đã được thanh lý trước đó!"))
