@@ -2,18 +2,20 @@
 <odoo>
     <data>
         <record id="view_lich_su_cong_tac_form" model="ir.ui.view">
-            <field name="name">lich_su_cong_tac.form</field>
+            <field name="name">lich_su_cong_tac</field>
             <field name="model">lich_su_cong_tac</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Lịch sử công tác</div>
-                        <group col="4" string="Thông tin công tác">
-                            <field name="nhan_vien_id"/>
-                            <field name="phong_ban_id"/>
-                            <field name="chuc_vu_id"/>
-                            <field name="ngay_bat_dau"/>
-                            <field name="ngay_ket_thuc"/>
+                        <div class="oe_read_only" style="font-size:25px">Lịch sử công tác</div>
+                        <group col="4" string="Thông tin chung">
+
+                            <field name="nhan_vien_id" />
+                            <field name="phong_ban_id" />
+                            <field name="chuc_vu_id" />
+                            <field name="time_start" />
+                            <field name="time_end" />
+
                         </group>
                     </sheet>
                 </form>
@@ -21,41 +23,43 @@
         </record>
 
         <record id="view_lich_su_cong_tac_tree" model="ir.ui.view">
-            <field name="name">lich_su_cong_tac.tree</field>
+            <field name="name">lich_su_cong_tac</field>
             <field name="model">lich_su_cong_tac</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="nhan_vien_id"/>
-                    <field name="phong_ban_id"/>
-                    <field name="chuc_vu_id"/>
-                    <field name="ngay_bat_dau"/>
-                    <field name="ngay_ket_thuc"/>
+                    <field name="nhan_vien_id" />
+                    <field name="phong_ban_id" />
+                    <field name="chuc_vu_id" />
+                    <field name="time_start" />
+                    <field name="time_end" />
+
                 </tree>
             </field>
         </record>
 
-        <record id="lich_su_cong_tac_search" model="ir.ui.view">
+        <record model="ir.ui.view" id="lich_su_cong_tac_search">
             <field name="model">lich_su_cong_tac</field>
             <field name="arch" type="xml">
                 <search>
+ <field name="time_start" select="multi" />
+                        <field name="time_end" select="multi" />
                     <searchpanel>
-                        <field name="nhan_vien_id" select="multi"/>
-                        <field name="phong_ban_id" select="multi"/>
-                        <field name="chuc_vu_id" select="multi"/>
+                        <field name="nhan_vien_id" select="multi" />
+                        <field name="phong_ban_id" select="multi" />
+                        <field name="chuc_vu_id" select="multi" />
+                       
                     </searchpanel>
                 </search>
             </field>
         </record>
 
         <record id="action_lich_su_cong_tac" model="ir.actions.act_window">
-            <field name="name">Lịch sử công tác</field>
+            <field name="name">Lịch sử công tác</field>
             <field name="res_model">lich_su_cong_tac</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="lich_su_cong_tac_search"/>
+            <field name="search_view_id" ref="lich_su_cong_tac_search" />
         </record>
-
-        <menuitem id="menu_lich_su_cong_tac" name="Lịch Sử Công Tác"
-                  parent="base.menu_management"
-                  action="action_lich_su_cong_tac"/>
     </data>
 </odoo>
+        
+    
