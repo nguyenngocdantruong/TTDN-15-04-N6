@@ -14,7 +14,7 @@ class DonMuonTaiSan(models.Model):
     
     ly_do = fields.Char('Lý do mượn tài sản', required=True)
     
-    muon_tra_line_ids = fields.One2many('muon_tra_tai_san_line', 'muon_tra_id', string='Danh sách tài sản yêu cầu')
+    don_muon_tai_san_ids = fields.One2many('don_muon_tai_san_line', 'don_muon_id', string='Danh sách tài sản yêu cầu')
 
     trang_thai = fields.Selection([
         ('dang-cho', 'Đang chờ'),
