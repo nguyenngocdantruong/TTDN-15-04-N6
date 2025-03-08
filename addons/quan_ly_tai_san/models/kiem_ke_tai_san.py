@@ -20,7 +20,18 @@ class KiemKeTaiSan(models.Model):
     thoi_gian_tao = fields.Datetime('Thời gian tạo phiếu', default=fields.Datetime.now)
     ghi_chu = fields.Char('Ghi chú', default='')
     trang_thai_phieu = fields.Char(compute='_compute_trang_thai_phieu', string='Trạng thái phiếu', store=True)
-    
+    ds_tai_san_chua_kiem_ke = fields.Many2many('phan_bo_tai_san', compute='_compute_ds_tai_san_chua_kiem_ke', string="Tài sản chưa kiểm kê")
+
+    @api.depends('phong_ban_id', 'ds_kiem_ke_ids')
+    def _compute_ds_tai_san_chua_kiem_ke(self):
+        for record in self:
+            da_kiem_ke_ids = record.ds_kiem_ke_ids.mapped('phan_bo_tai_san_id').ids
+            ds_tai_san = self.env['phan_bo_tai_san'].search([
+                ('phong_ban_id', '=', record.phong_ban_id.id),
+                ('id', 'not in', da_kiem_ke_ids)
+            ])
+            record.ds_tai_san_chua_kiem_ke = ds_tai_san
+
     @api.depends('ma_phieu_kiem_ke', 'ten_phieu_kiem_ke')
     def _compute_rec_name(self):
         for record in self:

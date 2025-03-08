@@ -8,8 +8,10 @@
             <field name="arch" type="xml">
                 <form string="Danh sách Đơn mượn tài sản">
                     <sheet>
-                        <group col="2">
+                        
+                        <group>
                             <group string="Thông tin chung">
+                                <field name="ds_tai_san_chua_muon" invisible="1"/>
                                 <field name="ten_don_muon" string="Đơn mượn"/>
                                 <field name="phong_ban_cho_muon_id" string="Phòng ban cho mượn"/>
                                 <field name="thoi_gian_muon" string="Thời gian mượn"/>
@@ -29,7 +31,7 @@
                                     <tree editable="bottom">
                                         <field name="phan_bo_tai_san_id" 
                                             string="Tài sản"
-                                            domain="[('phong_ban_id','=',parent.phong_ban_cho_muon_id)]"/>
+                                            domain="[('id','in',parent.ds_tai_san_chua_muon)]"/>
                                         <field name="ghi_chu"/>
                                     </tree>
                                 </field>

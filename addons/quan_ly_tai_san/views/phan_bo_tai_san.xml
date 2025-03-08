@@ -11,7 +11,8 @@
                         <group col="2">
                             <group string="Thông tin phân bổ">
                                 <field name="phong_ban_id" string="Phòng ban"/>
-                                <field name="tai_san_id" string="Tài sản"/>
+                                <field name="tai_san_id" string="Tài sản"
+                                        domain="['|', ('trang_thai_thanh_ly', '=', 'chua_phan_bo'), ('trang_thai_thanh_ly', '=', 'chua_thanh_ly')]"/>
                                 <field name="ngay_phat" string="Ngày phân bổ"/>
                                 <field name="nhan_vien_su_dung_id" string="Nhân viên sử dụng"/>
                             </group>

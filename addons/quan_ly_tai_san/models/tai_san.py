@@ -50,17 +50,23 @@ class TaiSan(models.Model):
     kiem_ke_history_ids = fields.One2many('kiem_ke_tai_san_line', compute='_compute_kiem_ke_history_ids', string='Lịch sử kiểm kê')
     luan_chuyen_ids = fields.Many2many('luan_chuyen_tai_san', compute='_compute_luan_chuyen_ids', string='Phiếu luân chuyển')
     thanh_ly_ids = fields.One2many('thanh_ly_tai_san', 'tai_san_id', string='Lịch sử thanh lý')
-    trang_thai_thanh_ly = fields.Char(string = 'Trạng thái thanh lý', compute='_compute_trang_thai_thanh_ly', store=True)
+    trang_thai_thanh_ly = fields.Selection([
+        ('chua_phan_bo', 'Chưa phân bổ'),
+        ('chua_thanh_ly', 'Chưa thanh lý'),
+        ('da_phan_bo', 'Đã phân bổ'),
+        ('da_thanh_ly', 'Đã thanh lý'),
+    ], string='Trạng thái thanh lý', compute='_compute_trang_thai_thanh_ly', default='chua_phan_bo', store=True)
     
-    @api.depends('thanh_ly_ids')
+    @api.depends('thanh_ly_ids', 'phong_ban_su_dung_ids')
     def _compute_trang_thai_thanh_ly(self):
         for record in self:
-            thanh_ly = self.env['thanh_ly_tai_san'].search([('tai_san_id', '=', record.id)], limit=1)
-            if thanh_ly:
-                msg = 'Đã thanh lý' if thanh_ly.hanh_dong == 'ban' else 'Đã tiêu hủy' + f'({thanh_ly.ma_thanh_ly})'
-                record.trang_thai_thanh_ly = msg
+            if record.thanh_ly_ids:
+                record.trang_thai_thanh_ly = 'da_thanh_ly'
+            elif record.phong_ban_su_dung_ids:
+                record.trang_thai_thanh_ly = 'da_phan_bo'
             else:
-                record.trang_thai_thanh_ly = 'Chưa thanh lý'
+                record.trang_thai_thanh_ly = 'chua_phan_bo'
+
     
     def _compute_kiem_ke_history_ids(self):
         for record in self:

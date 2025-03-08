@@ -118,7 +118,7 @@ class AssetDashboard(models.Model):
                 'code': borrow.ma_phieu_muon_tra,
                 'name': borrow.ten_phieu_muon_tra,
                 'department': borrow.phong_ban_cho_muon_id.ten_phong_ban or borrow.phong_ban_cho_muon_id.ma_phong_ban,
-                'employee': borrow.nhan_vien_muon_id.name,
+                'employee': borrow.nhan_vien_muon_id.ho_ten if borrow.nhan_vien_muon_id else '',
                 'borrow_date': borrow.thoi_gian_muon,
                 'due_date': borrow.thoi_gian_tra,
                 'days_overdue': (fields.Datetime.now() - borrow.thoi_gian_tra).days

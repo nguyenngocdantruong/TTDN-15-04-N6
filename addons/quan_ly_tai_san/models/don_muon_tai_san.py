@@ -15,6 +15,17 @@ class DonMuonTaiSan(models.Model):
     ly_do = fields.Char('Lý do mượn tài sản', required=True)
     
     don_muon_tai_san_ids = fields.One2many('don_muon_tai_san_line', 'don_muon_id', string='Danh sách tài sản yêu cầu')
+    ds_tai_san_chua_muon = fields.Many2many('phan_bo_tai_san', compute='_compute_ds_tai_san_chua_muon', string="Tài sản chưa mượn")
+
+    @api.depends('phong_ban_cho_muon_id', 'don_muon_tai_san_ids')
+    def _compute_ds_tai_san_chua_muon(self):
+        for record in self:
+            da_muon_ids = record.don_muon_tai_san_ids.mapped('phan_bo_tai_san_id').ids
+            ds_tai_san = self.env['phan_bo_tai_san'].search([
+                ('phong_ban_id', '=', record.phong_ban_cho_muon_id.id),
+                ('id', 'not in', da_muon_ids)
+            ])
+            record.ds_tai_san_chua_muon = ds_tai_san
 
     trang_thai = fields.Selection([
         ('dang-cho', 'Đang chờ'),

@@ -1,5 +1,5 @@
 
-.o_control_panel {
+.o_action.o_cannot_create.o_view_controller.o_dashboard_view > .o_control_panel {
     display: none !important;
 }
 

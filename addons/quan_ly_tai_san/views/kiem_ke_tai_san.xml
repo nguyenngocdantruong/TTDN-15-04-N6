@@ -10,6 +10,7 @@
                     <sheet>
                         <group col="2">
                             <group string="Thông tin chung">
+                                <field name="ds_tai_san_chua_kiem_ke" invisible="1"/>
                                 <field name="ma_phieu_kiem_ke" string="Mã phiếu"/>
                                 <field name="ten_phieu_kiem_ke" string="Tên phiếu"/>
                                 <field name="phong_ban_id" string="Bộ phận muốn kiểm kê"/>
@@ -23,7 +24,7 @@
                                 <field name="ds_kiem_ke_ids" attrs="{'readonly': [('phong_ban_id', '=', False)]}">
                                     <tree editable="bottom">
                                         <field name="phan_bo_tai_san_id" string="Tài sản"
-                                            width="275" domain="[('phong_ban_id', '=', parent.phong_ban_id)]"/>
+                                                width="275" domain="[('id', 'in', parent.ds_tai_san_chua_kiem_ke)]"/>
                                         <field name="so_luong_ly_thuyet" string="SL lý thuyết" width="100"/>
                                         <field name="so_luong_thuc_te" string="SL thực tế" width="100"/>
                                         <field name="dvt" string="Đơn vị tính" width="125"/>
