@@ -1,4 +1,3 @@
-/* filepath: d:\ProjectsWorking\AssetManagement\quan_ly_tai_san\static\src\js\dashboard_overview.js */
 odoo.define('quan_ly_tai_san.dashboard_overview', function (require) {
     "use strict";
 
