@@ -55,7 +55,7 @@ class TaiSan(models.Model):
         ('chua_thanh_ly', 'Chưa thanh lý'),
         ('da_phan_bo', 'Đã phân bổ'),
         ('da_thanh_ly', 'Đã thanh lý'),
-    ], string='Trạng thái thanh lý', compute='_compute_trang_thai_thanh_ly', default='chua_phan_bo', store=True)
+    ], string='Trạng thái', compute='_compute_trang_thai_thanh_ly', default='chua_phan_bo', store=True)
     
     @api.depends('thanh_ly_ids', 'phong_ban_su_dung_ids')
     def _compute_trang_thai_thanh_ly(self):

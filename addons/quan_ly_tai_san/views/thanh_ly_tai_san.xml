@@ -16,7 +16,7 @@
                         </group>
                         <group string="Thông tin chi tiết">
                             <field name="tai_san_id"
-                                domain="[('trang_thai_thanh_ly','=','Chưa thanh lý')]"/>
+                                domain="['|',('trang_thai_thanh_ly','=','chua_thanh_ly'),('trang_thai_thanh_ly','=','chua_phan_bo')]"/>
                             <field name="gia_goc"/>
                             <field name="gia_ban" 
                                 attrs="{'invisible':[('hanh_dong','=','huy')]}"/>

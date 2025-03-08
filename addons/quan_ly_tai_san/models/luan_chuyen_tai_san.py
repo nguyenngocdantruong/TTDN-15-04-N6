@@ -45,6 +45,7 @@ class LuanChuyenTaiSan(models.Model):
                         phan_bo_tai_san.write({
                             'phong_ban_id': record.bo_phan_dich.id,
                             'vi_tri_tai_san_id': record.bo_phan_dich.id,
+                            'ngay_phat': fields.Date.today(),
                             'ghi_chu': f"Lưu ý: Phiếu luân chuyển tài sản - {record.ma_phieu_luan_chuyen}"
                         })
         return records

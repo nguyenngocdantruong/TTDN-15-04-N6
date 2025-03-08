@@ -52,6 +52,14 @@ class MuonTraTaiSan(models.Model):
 
             self.muon_tra_line_ids = muon_tra_lines
 
+    @api.model
+    def create(self, vals):
+        record = super(MuonTraTaiSan, self).create(vals)
+        if record.ma_don_muon_id:
+            record.ma_don_muon_id.trang_thai = 'da-duyet'
+        return record
+    
+    @api.model
     def write(self, vals):
         res = super(MuonTraTaiSan, self).write(vals)
         for record in self:

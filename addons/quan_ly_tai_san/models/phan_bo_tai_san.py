@@ -9,7 +9,7 @@ class PhanBoTaiSan(models.Model):
 
     phong_ban_id = fields.Many2one('phong_ban', string='Phòng ban', required=True, ondelete='restrict')
     tai_san_id = fields.Many2one('tai_san', string='Tài sản', required=True, ondelete='cascade')
-    ngay_phat = fields.Date('Ngày phân bổ', required=True, default=fields.Date.today)
+    ngay_phat = fields.Date('Ngày phân bổ', required=True, default=fields.Date.today())
     nhan_vien_su_dung_id = fields.Many2one(comodel_name = 'nhan_vien', string='Nhân viên sử dụng', ondelete='restrict')
     
     ghi_chu = fields.Char('Ghi chú', default='')

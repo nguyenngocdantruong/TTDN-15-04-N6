@@ -1,6 +1,4 @@
 from odoo import api, fields, models
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 
 class AssetDashboard(models.Model):
     _name = 'asset.dashboard'
@@ -18,7 +16,7 @@ class AssetDashboard(models.Model):
         total_assets = self.env['tai_san'].search_count([])
         in_use_assets = self.env['tai_san'].search_count([('phong_ban_su_dung_ids.trang_thai', '=', 'in-use')])
         not_used_assets = self.env['tai_san'].search_count([('phong_ban_su_dung_ids.trang_thai', '=', 'not-in-use')])
-        disposed_assets = self.env['tai_san'].search_count([('trang_thai_thanh_ly', 'not like', 'Chưa thanh lý')])
+        disposed_assets = self.env['tai_san'].search_count([('trang_thai_thanh_ly', '=', 'da_thanh_ly')])
         
         # Tổng giá trị tài sản
         assets = self.env['tai_san'].search([])
