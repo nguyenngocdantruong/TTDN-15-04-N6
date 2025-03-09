@@ -39,8 +39,8 @@ class MuonTraTaiSan(models.Model):
             self.thoi_gian_muon = don_muon.thoi_gian_muon
             self.thoi_gian_tra = don_muon.thoi_gian_tra
             self.nhan_vien_muon_id = don_muon.nhan_vien_muon_id
-            self.ten_phieu_muon_tra = "Duyệt đơn mượn: " + str(don_muon.ten_don_muon)
-            self.ma_phieu_muon_tra = "MTTS-" + str(don_muon.ten_don_muon) + str(fields.Datetime.now())
+            self.ten_phieu_muon_tra = "Duyệt đơn mượn: " + str(don_muon.custom_rec_name)
+            self.ma_phieu_muon_tra = "MTTS-" + str(don_muon.ma_don_muon)
 
             # Lấy danh sách tài sản từ đơn mượn
             muon_tra_lines = []

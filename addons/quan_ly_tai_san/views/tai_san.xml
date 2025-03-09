@@ -16,6 +16,11 @@
 								<field name="danh_muc_ts_id" string="Loại tài sản"/>
 								<field name="trang_thai_thanh_ly" string="Trạng thái thanh lý"/>
 							</group>
+							<group string="Hình ảnh TS">
+								<field name="hinh_anh" widget="image" nolabel="1"/>
+							</group>
+						</group>
+						<group>
 							<group string="Phương pháp Khấu hao tự động">
 								<field name="pp_khau_hao"/>
 								<field name="thoi_gian_su_dung"/>
@@ -28,6 +33,9 @@
 									string="Tính khấu hao tự động cho 01 năm"
 									type="object"
 									class="btn-primary w-100 mt-3"/>
+							</group>
+							<group string="Giấy tờ liên quan">
+								<field name="giay_to_tai_san" filename="giay_to_tai_san_filename" />
 							</group>
 						</group>
 						<group string="Cấu hình tài sản">
@@ -43,7 +51,7 @@
 						</group>
 						<notebook>
 							<page name="pbsd" string="Phòng ban sử dụng">
-								<field name="phong_ban_su_dung_ids">
+								<field name="phong_ban_su_dung_ids" readonly="True">
 									<tree>
 										<field name="phong_ban_id" string="Phòng ban"/>
 										<field name="trang_thai" string="Trạng thái" />
@@ -52,7 +60,7 @@
 								</field>
 							</page>
 							<page name="lskh" string="Lịch sử khấu hao">
-								<field name="lich_su_khau_hao_ids">
+								<field name="lich_su_khau_hao_ids" readonly="True">
 									<tree>
 										<field name="ma_phieu_khau_hao" string="Mã phiếu" width="200"/>
 										<field name="ngay_khau_hao" string="Ngày thực hiện" width="150"/>
@@ -64,11 +72,11 @@
 								</field>
 							</page>
 							<page name="lskk" string="Lịch sử kiểm kê">
-								<field name="kiem_ke_history_ids">
+								<field name="kiem_ke_history_ids" readonly="True">
 									<tree>
 										<field name="kiem_ke_tai_san_id" string="Mã kiểm kê"/>
 										<field name="so_luong_thuc_te" string="Số lượng thực tế"/>
-										<field name="so_luong_ly_thuyet" string="Số lượng lý thuyết"/>
+										<field name="so_luong_ly_thuyet" string="Số lượng sổ sách"/>
 										<field name="trang_thai_tai_san" string="Tình trạng"/>
 										<field name="trang_thai" string="Trạng thái"/>
 										<field name="ghi_chu" string="Ghi chú"/>
@@ -76,13 +84,22 @@
 								</field>
 							</page>
 							<page name="lslc" string="Lịch sử luân chuyển">
-								<field name="luan_chuyen_ids">
+								<field name="luan_chuyen_ids" readonly="True">
 									<tree>
 										<field name="ma_phieu_luan_chuyen" string="Mã phiếu"/>
 										<field name="bo_phan_nguon" string="Vị trí ban đầu"/>
 										<field name="bo_phan_dich" string="Bộ phận chuyển tới"/>
 										<field name="thoi_gian_luan_chuyen" string="Thời gian luân chuyển"/>
 										<field name="ghi_chu" string="Lý do luân chuyển"/>
+									</tree>
+								</field>
+							</page>
+							<page name="lskt" string="Tình trạng kỹ thuật">
+								<field name="lich_su_ky_thuat_ids">
+									<tree>
+										<field name="ngay"/>
+										<field name="noi_dung" string="Tình trạng"/>
+										<field name="ghi_chu" />
 									</tree>
 								</field>
 							</page>

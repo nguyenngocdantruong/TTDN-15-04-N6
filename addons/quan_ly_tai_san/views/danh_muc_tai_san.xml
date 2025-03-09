@@ -18,7 +18,7 @@
 						</group>
 						<notebook>
 							<page string="Tài sản cụ thể">
-								<field name="tai_san_ids">
+								<field name="tai_san_ids" readonly="True">
 									<tree>
 										<field name="ma_tai_san" />
 										<field name="ten_tai_san" />

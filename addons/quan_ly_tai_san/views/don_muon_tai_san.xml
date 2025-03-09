@@ -12,6 +12,7 @@
                         <group>
                             <group string="Thông tin chung">
                                 <field name="ds_tai_san_chua_muon" invisible="1"/>
+                                <field name="ma_don_muon" string="Mã đơn mượn"/>
                                 <field name="ten_don_muon" string="Đơn mượn"/>
                                 <field name="phong_ban_cho_muon_id" string="Phòng ban cho mượn"/>
                                 <field name="thoi_gian_muon" string="Thời gian mượn"/>
@@ -48,6 +49,7 @@
             <field name="model">don_muon_tai_san</field>
             <field name="arch" type="xml">
                 <tree string="Danh sách đơn mượn tài sản">
+                    <field name="ma_don_muon"/>
                     <field name="ten_don_muon"/>
                     <field name="phong_ban_cho_muon_id"/>
                     <field name="nhan_vien_muon_id" />

@@ -4,8 +4,12 @@ from odoo.exceptions import ValidationError
 class DonMuonTaiSan(models.Model):
     _name = 'don_muon_tai_san'
     _description = 'Bảng chứa thông tin Đơn mượn tài sản'
-    _rec_name = "ten_don_muon"
+    _rec_name = "custom_rec_name"
+    _sql_constraints = [
+        ("ma_don_muon_unique", "unique(ma_don_muon)", "Mã đơn mượn đã tồn tại"),
+    ]
 
+    ma_don_muon = fields.Char("Mã đơn mượn", required=True, default='M')
     ten_don_muon = fields.Char('Đơn mượn tài sản', required=True)
     phong_ban_cho_muon_id = fields.Many2one('phong_ban', string='Phòng ban cho mượn', required=True, ondelete='restrict')
     thoi_gian_muon = fields.Datetime('Thời gian mượn', required=True, default=lambda self: fields.Datetime.now())
@@ -16,6 +20,14 @@ class DonMuonTaiSan(models.Model):
     
     don_muon_tai_san_ids = fields.One2many('don_muon_tai_san_line', 'don_muon_id', string='Danh sách tài sản yêu cầu')
     ds_tai_san_chua_muon = fields.Many2many('phan_bo_tai_san', compute='_compute_ds_tai_san_chua_muon', string="Tài sản chưa mượn")
+
+    custom_rec_name = fields.Char(compute='_compute_custom_rec_name', string='custom_rec_name')
+    
+    @api.depends('ma_don_muon', 'ten_don_muon')
+    def _compute_custom_rec_name(self):
+        for record in self:
+            record.custom_rec_name = record.ma_don_muon + ' - ' + record.ten_don_muon
+        
 
     @api.depends('phong_ban_cho_muon_id', 'don_muon_tai_san_ids')
     def _compute_ds_tai_san_chua_muon(self):

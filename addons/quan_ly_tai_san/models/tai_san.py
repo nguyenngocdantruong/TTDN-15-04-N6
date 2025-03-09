@@ -22,6 +22,9 @@ class TaiSan(models.Model):
     gia_tri_ban_dau = fields.Float('Giá trị ban đầu', default = 1, required=True)
     gia_tri_hien_tai = fields.Float('Giá trị hiện tại', default = 1, required=True)
     danh_muc_ts_id = fields.Many2one('danh_muc_tai_san', string='Loại tài sản', required=True, ondelete='restrict')
+    giay_to_tai_san = fields.Binary('Giấy tờ liên quan', attachment=True)
+    giay_to_tai_san_filename = fields.Char('Tên file')
+    hinh_anh = fields.Image('Hình ảnh', max_width=200, max_height=200)
 
     pp_khau_hao = fields.Selection([
         ('straight-line', 'Tuyến tính'),
@@ -56,6 +59,8 @@ class TaiSan(models.Model):
         ('da_phan_bo', 'Đã phân bổ'),
         ('da_thanh_ly', 'Đã thanh lý'),
     ], string='Trạng thái', compute='_compute_trang_thai_thanh_ly', default='chua_phan_bo', store=True)
+
+    lich_su_ky_thuat_ids = fields.One2many(comodel_name='lich_su_ky_thuat', inverse_name='tai_san_id', string='Tình trạng kỹ thuật')
     
     @api.depends('thanh_ly_ids', 'phong_ban_su_dung_ids')
     def _compute_trang_thai_thanh_ly(self):
